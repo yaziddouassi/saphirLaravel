@@ -28,6 +28,16 @@ class SaphirCommand extends Command
         $installor = new \Saphir\Saphir\Utils\Generator\InstallatorPart();
         $filePathRouter = base_path('routes/web.php');
 
+        
+        if (!File::exists("app/Livewire/Saphir")) {
+            File::makeDirectory("app/Livewire/Saphir", 0755, true);
+        }
+
+        if (!File::exists("resources/views/livewire/saphir")) {
+            File::makeDirectory("resources/views/livewire/saphir", 0755, true);
+        }
+
+
         $piece1 = $installor->getPiece1();
         $filePath1 = base_path('app/Livewire/Saphir/Admin.php');
 
