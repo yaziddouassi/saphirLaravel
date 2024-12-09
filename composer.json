@@ -1,0 +1,30 @@
+{
+    "name": "saphir/saphir",
+    "description": "laravel livewire saphir crud generator created by Rabah Douassi Algerian Developer",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Saphir\\Saphir\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel" : {
+            "providers": [
+               "Saphir\\Saphir\\SaphirServiceProvider",
+               "Saphir\\Saphir\\Saphir2ServiceProvider"
+            ] 
+        }
+    },
+    "authors": [
+        {
+            "name": "rabahdouassi",
+            "email": "rabahdouassi@yahoo.fr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.0"
+    }
+}

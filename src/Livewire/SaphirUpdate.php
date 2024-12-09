@@ -1,0 +1,97 @@
+<?php
+
+namespace Saphir\Saphir\Livewire;
+
+header('Cache-Control: no-cache, no-store, must-revalidate');
+header('Pragma: no-cache');
+header('Expires: 0');
+
+use Livewire\Component;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
+
+class SaphirUpdate extends Component
+{
+
+   public $saphirFile0pens =  [];
+
+   public function conteneurSaphirUpdate()
+   {
+    $this->saphirUpdate();
+   }
+
+   public function rezetSaphirFile0pens() {
+
+    foreach ($this->saphirFile0pens as $key => $value) {
+        $this->saphirFile0pens[$key] = null ;
+    }
+}
+
+public function rezetSaphirFiles() {
+
+    foreach ($this->saphirFiles as $key => $value) {
+        $this->saphirFiles[$key] = null ;
+    }
+}
+
+
+    public function saphirUpload()
+    {
+     $randomString = Str::random(10);
+     $randomString;
+     
+     foreach ($this->saphirFiles as $key => $value) {
+      
+      if($this->saphirFiles[$key] != null) {
+      $ext = $this->saphirFiles[$key]->getClientOriginalName();
+      $name1 = time(). '-'. $randomString .'-'.$ext;
+      $folder = $this->saphirModel . '/'  .$key ;
+      $name2 = $folder. '/' . $name1;
+      $this->saphirFiles[$key]->storeAs($folder,$name1, 'public');
+      $this->saphirRecord[$key] =  $name2;
+        }
+     }
+
+     $this->rezetSaphirFiles();
+     $this->rezetSaphirFile0pens();
+
+ }
+
+
+ public function saphirRename() {
+    $tabValidation = [];
+
+    // Loop through saphirFields
+    foreach ($this->saphirFields as $key => $value) {
+        $tabValidation["saphirFields.$key"] = $key;
+    }
+    
+    // Loop through saphirFiles
+    foreach ($this->saphirFiles as $cle => $item) {
+        $tabValidation["saphirFiles.$cle"] = $cle;
+    }
+
+    return $tabValidation;
+}
+
+
+
+public function saphirInit($id) {
+
+    $this->saphirRecord = $this->saphirModelClass::find($id);
+    if($this->saphirRecord == null) {
+        return $this->redirect($this->saphirRouteListe, navigate: true);
+    }
+    foreach ($this->saphirFields as $cle => $fields) {
+        $this->saphirFields[$cle] =  $this->saphirRecord[$cle];
+       } 
+}
+
+
+    
+    public function render()
+    {
+        return view('saphir::livewire.saphirupdate');
+    }
+    
+}
