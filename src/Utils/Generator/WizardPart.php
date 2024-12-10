@@ -145,7 +145,7 @@ class Create extends WizardCreator
         \$this->saphirReset();
         
        \$this->js(\"const notyf = new Notyf({position: {x: 'right',y: 'top'}});
-       notyf.success('wizardCreateOther');\");
+       notyf.success('Record Created');\");
     }
 
 

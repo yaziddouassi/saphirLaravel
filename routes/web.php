@@ -22,6 +22,5 @@ Route::middleware('web')->group(function () {
     Route::get('/admin/widget-generator', \Saphir\Saphir\Livewire\Saphir5::class)->middleware($temp);
     Route::get('/admin/route-generator/create', \Saphir\Saphir\Livewire\Saphir6::class)->middleware($temp);
     Route::get('/admin/route-generator/edit/{id}', \Saphir\Saphir\Livewire\Saphir7::class)->middleware($temp);
-    Route::get('/admin/login', \Saphir\Saphir\Livewire\Saphir8::class);
+    Route::get('/admin/login', \Saphir\Saphir\Livewire\Saphir8::class)->middleware('guest');
 });
-    
