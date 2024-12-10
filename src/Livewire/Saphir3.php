@@ -36,7 +36,7 @@ class Saphir3 extends Component
         
        $tempchemin1  = 'app/Livewire/Saphir/Crud/' . $this->selected . '/Liste.php' ;
        $tempchemin2  = 'app/Livewire/Saphir/Crud/' . $this->selected . '/Create/Create.php' ;
-       $tempchemin3  = 'app/Livewire/Saphir/Crud' . $this->selected . '/Edit/Edit.php' ;
+       $tempchemin3  = 'app/Livewire/Saphir/Crud/' . $this->selected . '/Edit/Edit.php' ;
        $tempchemin4  = 'resources/views/livewire/saphir/crud/' . strtolower($this->selected) .
         '/liste.blade.php' ;
        $tempchemin5  = 'resources/views/livewire/saphir/crud/' . strtolower($this->selected) . 
