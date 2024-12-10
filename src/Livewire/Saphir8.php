@@ -20,13 +20,19 @@ class Saphir8 extends Component
         'password' => 'required|min:6',
     ];
 
+    public function mount() {
+        if (auth()->check()) {
+            return $this->redirect('/admin', navigate: true);
+        }
+    }
+
     public function login()
     {
         $this->validate();
 
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
             session()->flash('message', 'Logged in successfully.');
-            return redirect()->intended('/admin');
+            return $this->redirect('/admin', navigate: true);
         } else {
             session()->flash('error', 'Invalid email or password.');
         }
