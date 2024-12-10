@@ -149,13 +149,22 @@ class Saphir1 extends Component
         File::makeDirectory($directory6, 0755, true);
     }
 
-       File::append($chemin1 , $content1);
-       File::append($chemin2 , $content2);
-       File::append($chemin3 , $content3);
-       File::append($chemin4 , $content4);
-       File::append($chemin5 , $content5);
-       File::append($chemin6 , $content6);
+       File::put($chemin1 , $content1);
+       File::put($chemin2 , $content2);
+       File::put($chemin3 , $content3);
+       File::put($chemin4 , $content4);
+       File::put($chemin5 , $content5);
+       File::put($chemin6 , $content6);
        File::append($chemin7 , $content7);
+
+       $transformString = new \Saphir\Saphir\Utils\Generator\TransformString();
+            $crud = new \Saphir\Saphir\Models\Saphircrud() ;
+            $crud->model  =  $this->selected;
+            $crud->label  = $transformString->transformLink($this->selected) ;
+            $crud->route  = '/admin/' .  $transformString->transformUrl($this->selected) ;
+            $crud->icon  = 'description' ;
+            $crud->active  = true ;
+            $crud->save()  ;
 
        $this->js("const notyf = new Notyf({ position: {x: 'right',y: 'top'}});
         notyf.success('Crud Created!');"); 

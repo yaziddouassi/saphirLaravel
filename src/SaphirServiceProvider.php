@@ -34,6 +34,7 @@ class SaphirServiceProvider extends ServiceProvider
 
         $this->commands([
             \Saphir\Saphir\Commands\SaphirCommand::class,
+            \Saphir\Saphir\Commands\CreateUser::class,
         ]);
    
 
