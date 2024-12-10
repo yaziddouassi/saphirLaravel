@@ -34,24 +34,24 @@ class Saphir3 extends Component
         );  
 
         
-       $tempchemin1  = 'app/Livewire/Saphir/' . $this->selected . '/Liste.php' ;
-       $tempchemin2  = 'app/Livewire/Saphir/' . $this->selected . '/Create/Create.php' ;
-       $tempchemin3  = 'app/Livewire/Saphir/' . $this->selected . '/Edit/Edit.php' ;
-       $tempchemin4  = 'resources/views/livewire/saphir/' . strtolower($this->selected) .
+       $tempchemin1  = 'app/Livewire/Saphir/Crud/' . $this->selected . '/Liste.php' ;
+       $tempchemin2  = 'app/Livewire/Saphir/Crud/' . $this->selected . '/Create/Create.php' ;
+       $tempchemin3  = 'app/Livewire/Saphir/Crud' . $this->selected . '/Edit/Edit.php' ;
+       $tempchemin4  = 'resources/views/livewire/saphir/crud/' . strtolower($this->selected) .
         '/liste.blade.php' ;
-       $tempchemin5  = 'resources/views/livewire/saphir/' . strtolower($this->selected) . 
+       $tempchemin5  = 'resources/views/livewire/saphir/crud/' . strtolower($this->selected) . 
        '/create/create.blade.php' ;
-       $tempchemin6  = 'resources/views/livewire/saphir/' . strtolower($this->selected) . 
+       $tempchemin6  = 'resources/views/livewire/saphir/crud/' . strtolower($this->selected) . 
        '/edit/edit.blade.php' ;
       
       
-       $tempdirectory1 = 'app/Livewire/Saphir/' . $this->selected  ;
-       $tempdirectory2 = 'app/Livewire/Saphir/' . $this->selected . '/Create/' ;
-       $tempdirectory3 = 'app/Livewire/Saphir/' . $this->selected . '/Edit/' ;
-       $tempdirectory4 = 'resources/views/livewire/saphir/' . strtolower($this->selected)  ;
-       $tempdirectory5 = 'resources/views/livewire/saphir/' . strtolower($this->selected) . 
+       $tempdirectory1 = 'app/Livewire/Saphir/Crud/' . $this->selected  ;
+       $tempdirectory2 = 'app/Livewire/Saphir/Crud/' . $this->selected . '/Create/' ;
+       $tempdirectory3 = 'app/Livewire/Saphir/Crud/' . $this->selected . '/Edit/' ;
+       $tempdirectory4 = 'resources/views/livewire/saphir/crud/' . strtolower($this->selected)  ;
+       $tempdirectory5 = 'resources/views/livewire/saphir/crud/' . strtolower($this->selected) . 
        '/create'  ;
-       $tempdirectory6 = 'resources/views/livewire/saphir/' . strtolower($this->selected) . 
+       $tempdirectory6 = 'resources/views/livewire/saphir/crud/' . strtolower($this->selected) . 
        '/edit'  ;
 
        $directory1 = base_path($tempdirectory1);
@@ -61,9 +61,9 @@ class Saphir3 extends Component
        $directory5 = base_path($tempdirectory5);
        $directory6 = base_path($tempdirectory6);
 
-       $namespace1 = "app\\Livewire\\Saphir\\" . $this->selected  ;
-       $namespace2 = "app\\Livewire\\Saphir\\" . $this->selected ."\\Create" ;
-       $namespace3 = "app\\Livewire\\Saphir\\" . $this->selected ."\\Edit" ;
+       $namespace1 = "app\\Livewire\\Saphir\\Crud\\" . $this->selected  ;
+       $namespace2 = "app\\Livewire\\Saphir\\Crud\\" . $this->selected ."\\Create" ;
+       $namespace3 = "app\\Livewire\\Saphir\\Crud\\" . $this->selected ."\\Edit" ;
 
        $ListeString = new \Saphir\Saphir\Utils\Generator\TransformString();
        $liste1 = $this->selected;
@@ -71,7 +71,7 @@ class Saphir3 extends Component
        $liste3 = $ListeString->transformDatabase($this->selected);
        $liste4 = "/admin/" . $ListeString->transformUrl($this->selected);
        $liste5 = "App\\Models\\" . $this->selected;
-       $liste6 = "livewire.saphir." . strtolower($this->selected) . ".liste";
+       $liste6 = "livewire.saphir.crud." . strtolower($this->selected) . ".liste";
 
        $CreateString = new \Saphir\Saphir\Utils\Generator\TransformString();
 
@@ -81,7 +81,7 @@ class Saphir3 extends Component
        $create4 = "Create " . $CreateString->transformLink($this->selected);
        $create5 = "App\\Models\\" . $this->selected;
        $create6 = "/admin/" . $CreateString->transformUrl($this->selected);
-       $create7 = "livewire.saphir." . strtolower($this->selected) . ".create.create";
+       $create7 = "livewire.saphir.crud." . strtolower($this->selected) . ".create.create";
 
 
        $EditString = new \Saphir\Saphir\Utils\Generator\TransformString();
@@ -92,16 +92,16 @@ class Saphir3 extends Component
        $edit4 = "Update " . $EditString->transformLink($this->selected);
        $edit5 = "App\\Models\\" . $this->selected;
        $edit6 = "/admin/" . $EditString->transformUrl($this->selected);
-       $edit7 = "livewire.saphir." . strtolower($this->selected) . ".edit.edit";
+       $edit7 = "livewire.saphir.crud." . strtolower($this->selected) . ".edit.edit";
 
        $RouteString = new \Saphir\Saphir\Utils\Generator\TransformString();
        
        $route1 = "/admin/" . $RouteString->transformUrl($this->selected) ;
        $route2 = "/admin/" . $RouteString->transformUrl($this->selected) . "/create" ;
        $route3 = "/admin/" . $RouteString->transformUrl($this->selected) . "/edit/{id}" ;
-       $routeSide1 = "App\\Livewire\\Saphir\\" . $this->selected . "\\Liste::class" ;
-       $routeSide2 = "App\\Livewire\\Saphir\\" . $this->selected . "\\Create\\Create::class" ;
-       $routeSide3 = "App\\Livewire\\Saphir\\" . $this->selected . "\\Edit\\Edit::class" ;
+       $routeSide1 = "App\\Livewire\\Saphir\\Crud\\" . $this->selected . "\\Liste::class" ;
+       $routeSide2 = "App\\Livewire\\Saphir\\Crud\\" . $this->selected . "\\Create\\Create::class" ;
+       $routeSide3 = "App\\Livewire\\Saphir\\Crud\\" . $this->selected . "\\Edit\\Edit::class" ;
     
        $crud = new  \Saphir\Saphir\Utils\Generator\WizardPart();
 
