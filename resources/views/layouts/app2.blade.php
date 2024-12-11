@@ -42,9 +42,12 @@
                },
 
                executeAction(a) {
-                this.rezetabs();
+                
+                var that = this
                 comp.actionsDiv1  = false ;
-                comp.$call(a) ;
+                comp.$call(a).then(() => {
+                    that.rezetabs()
+                }) ;
                 
                },
    
