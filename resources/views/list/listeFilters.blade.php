@@ -11,7 +11,9 @@
                     Actions
                   </button>
                  </div>
+                 <template x-if="$wire.groupId.length != 0">
                  @include('saphir::list.listeActions')
+                </template>
               </div>
 
               
