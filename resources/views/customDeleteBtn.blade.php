@@ -24,6 +24,7 @@
   <button 
   onclick="confirm('{{$confirmation}}')
                || event.stopImmediatePropagation()"
+  @click="rezetabs()"
   wire:click="deleteById('{{$item->id}}')"
        class="bg-[{{$bg}}] min-w-[40px] text-[{{$color}}] 
         p-[6px] h-[43px]   rounded-[3px]">
