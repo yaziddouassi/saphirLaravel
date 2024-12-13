@@ -39,6 +39,7 @@ class Liste extends Listing
 
     public \$paginationPerPageList = [10,20,30,40,50];
     public \$paginationFieldList = ['id'];
+    public \$paginationOrderList = ['asc','desc'];
 
     public \$saphirUrlStorage ;
     public \$saphirModel = \"$b\";

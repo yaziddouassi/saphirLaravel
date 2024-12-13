@@ -44,8 +44,6 @@ class Listing extends Component
     public $searchSession = false;
     public $listingSearchs = array() ;
 
-    public $paginationOrderList = ['asc','desc'];
-
     public $paginationPerPage = null;
     public $paginationField = null;
     public $paginationOrder = null;
