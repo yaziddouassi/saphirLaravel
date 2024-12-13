@@ -13,7 +13,7 @@ class CreateUser extends Command
      *
      * @var string
      */
-    protected $signature = 'user:create';
+    protected $signature = 'make:saphir-user';
 
     /**
      * The console command description.
