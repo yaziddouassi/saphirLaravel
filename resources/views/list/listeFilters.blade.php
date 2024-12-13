@@ -51,7 +51,7 @@
         </div>
     
         <div class="mt-[10px] bg-black text-white  rounded-[3px] flex" 
-        x-show="$wire.filtersDiv1">
+        x-show="$wire.filtersDiv1" @click.away="$wire.filtersDiv1=false">
             <div class=" min-w-[200px] max-w-[200px] border-r-[1px] border-white
              flex justify-center items-center text-[30px] p-[10px]">
              Filters
