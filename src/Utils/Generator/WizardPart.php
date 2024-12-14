@@ -114,7 +114,7 @@ class Create extends WizardCreator
     public \$saphirRecord = null;
     public \$saphirFields = ['name' => null,'city' => null];
     public \$saphirFiles =  [];
-    public \$wizardStops = array(); 
+    public \$wizardStops =  []; 
     public \$wizardShowOther = true ;
 
     public function mount() {
@@ -219,7 +219,7 @@ class Edit extends WizardUpdate
     public \$saphirRecord = null;
     public \$saphirFields = ['name' => null,'city' => null];
     public \$saphirFiles =  [];
-    public \$wizardStops = array(); 
+    public \$wizardStops =  []; 
 
     public function mount(\$id) {
 
