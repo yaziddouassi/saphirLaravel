@@ -470,10 +470,7 @@ public function PaginationOrderValue() {
 
     public function RecordInit()
     {
-        foreach ($this->saphirFields as $key => $value) {
-            $this->saphirFields[$key] = null ;
-         }
-
+       
          foreach ($this->saphirFiles as $key => $value) {
             $this->saphirFiles[$key] = null ;
          }
@@ -487,6 +484,13 @@ public function PaginationOrderValue() {
             }
             $this->js("const notyf = new Notyf({ position: {x: 'right',y: 'top'}});
             notyf.error('Record dont exist');"); 
+         }
+
+         foreach ($this->saphirFields as $key => $value) {
+            $this->saphirFields[$key] = null ;
+            if (in_array($key,$this->saphirRecord->getFillable())) {
+                $this->saphirFields[$key] = $this->saphirRecord[$key]  ;
+            } 
          }
 
          $this->resetValidation();

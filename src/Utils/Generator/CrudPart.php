@@ -154,8 +154,12 @@ class Create extends SaphirCreator
     {
         \$this->saphirRecord = new \$this->saphirModelClass;
        foreach (\$this->saphirFields as \$key => \$value) {
-          \$this->saphirRecord[\$key] = \$value ;
+          if (in_array(\$key,\$this->saphirRecord->getFillable())) {
+              \$this->saphirRecord[\$key] = \$value ;
+            }
        }
+
+       
       
        \$now = now();
        \$this->saphirRecord['created_at'] = \$now;
@@ -233,7 +237,9 @@ class Edit extends SaphirUpdate
 
 
         foreach (\$this->saphirFields as \$key => \$value) {
-            \$this->saphirRecord[\$key] = \$value ;
+         if (in_array(\$key,\$this->saphirRecord->getFillable())) {
+              \$this->saphirRecord[\$key] = \$value ;
+            }
          }
   
          \$this->saphirUpload();

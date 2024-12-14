@@ -163,7 +163,9 @@ class Create extends WizardCreator
     {
         \$this->saphirRecord = new \$this->saphirModelClass;
        foreach (\$this->saphirFields as \$key => \$value) {
-          \$this->saphirRecord[\$key] = \$value ;
+           if (in_array(\$key,\$this->saphirRecord->getFillable())) {
+              \$this->saphirRecord[\$key] = \$value ;
+            }
        }
       
        \$now = now();
@@ -252,7 +254,9 @@ class Edit extends WizardUpdate
     public function saphirUpdate()
     {
        foreach (\$this->saphirFields as \$key => \$value) {
-          \$this->saphirRecord[\$key] = \$value ;
+           if (in_array(\$key,\$this->saphirRecord->getFillable())) {
+              \$this->saphirRecord[\$key] = \$value ;
+            }
        }
 
        \$this->saphirUpload();

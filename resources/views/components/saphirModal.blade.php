@@ -1,4 +1,4 @@
-<div x-show="$wire.listingCustomOpens.{{$index}}" 
+<div x-show="$wire.listingCustomOpens.{{$index}}" x-transition.duration.1200ms
  class="fixed z-[101] top-0 bottom-0 right-0 left-0 overflow-y-scroll 
     min-h-[100vh] bg-[#000]">
     <div class="flex p-[5px] justify-end">
