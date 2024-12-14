@@ -16,8 +16,6 @@ class WizardCreator extends Component
     public $wizardCount = 1;
     public $wizardSteps = 0 ;
     public $wizardLabels = array() ;
-    public $wizardStops = array(); 
-    public $wizardShowOther = true ;
 
     
     public function saphirReset()

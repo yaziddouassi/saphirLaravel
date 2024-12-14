@@ -26,7 +26,7 @@ class $b extends Component
 
     public function mount()
     {
-        \$this->chartId = '$c' ;
+        \$this->chartId = 'charts-$c' ;
         \$this->label = 'Best Sailings'  ;
         \$this->data = [1,2,3,8]  ;
         \$this->labels = ['first','second','third','four']  ;

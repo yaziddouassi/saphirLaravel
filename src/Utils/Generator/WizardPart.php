@@ -114,7 +114,8 @@ class Create extends WizardCreator
     public \$saphirRecord = null;
     public \$saphirFields = ['name' => null,'city' => null];
     public \$saphirFiles =  [];
-    
+    public \$wizardStops = array(); 
+    public \$wizardShowOther = true ;
 
     public function mount() {
         \$this->saphirUrlStorage =  config('saphir.urlstorage');
@@ -218,7 +219,7 @@ class Edit extends WizardUpdate
     public \$saphirRecord = null;
     public \$saphirFields = ['name' => null,'city' => null];
     public \$saphirFiles =  [];
-    
+    public \$wizardStops = array(); 
 
     public function mount(\$id) {
 
