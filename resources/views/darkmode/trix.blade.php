@@ -15,7 +15,7 @@
         <input id="trixeditor-{{$field}}" type="hidden"  
         wire:model="saphirFields.{{$field}}"
         value="{{ $saphirFields[$field]}}">
-        <div>
+        <div class="bg-white p-[5px] pt-[10px]">
            <trix-editor wire:ignore input="trixeditor-{{$field}}"
            class="bg-white mt-[10px] min-h-[200px]"
            ></trix-editor>
