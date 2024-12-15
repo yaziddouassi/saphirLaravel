@@ -690,13 +690,15 @@ public function PaginationOrderValue() {
         }
 
 
-        foreach ($this->listingCustomOpens as $cle => $value) {
-            $this->listingCustomOpens[$cle] = false ;
-        }
-
     }
 
 
+    public function saphirCloseModal() {
+
+        foreach ($this->listingCustomOpens as $cle => $value) {
+            $this->listingCustomOpens[$cle] = false ;
+        }
+    }
 
 
     public function saphirRename() {
