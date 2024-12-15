@@ -83,7 +83,9 @@ public function saphirInit($id) {
         return $this->redirect($this->saphirRouteListe, navigate: true);
     }
     foreach ($this->saphirFields as $cle => $fields) {
+        if (in_array($cle,$this->saphirRecord->getFillable())) {
         $this->saphirFields[$cle] =  $this->saphirRecord[$cle];
+            }
        } 
 }
 
