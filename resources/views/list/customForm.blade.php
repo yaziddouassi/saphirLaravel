@@ -1,6 +1,6 @@
 <div class="w-full max-w-[600px] m-auto p-[10px] bg-[#bbb]">
 
-     <div class="text-[20px] text-center font-bold">
+     <div class="text-[20px] text-white text-center font-bold">
         {{$listingCustomTitles[$index]}} N° {{$activeId}}
      </div>
 

@@ -410,13 +410,13 @@ public function PaginationOrderValue() {
             if ($key2 === true) {
             
                if ($key == false) {
-                  $this->listingCustomTypes[$a][0] = 'saphir::' .$b ;
+                  $this->listingCustomTypes[$a][0] = 'saphir::darkmode.' .$b ;
                   $this->listingCustomInputs[$a][0] = $c ;
                }
 
                else if ($key == true) {
                 $temp = count($this->listingCustomTypes[$a]) ;
-                $this->listingCustomTypes[$a][$temp] = 'saphir::' .$b ;
+                $this->listingCustomTypes[$a][$temp] = 'saphir::darkmode.' .$b ;
                 $this->listingCustomInputs[$a][$temp] = $c ;
                }
             
