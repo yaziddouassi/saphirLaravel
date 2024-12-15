@@ -68,7 +68,7 @@ class Liste extends Listing
     public function deleteById(\$id) {
         \$this->listingModelClass::destroy(\$id);
         \$this->js(\"const notyf = new Notyf({ position: {x: 'right',y: 'top'}});
-        notyf.success('Item deleted');\"); 
+        notyf.success('Record deleted');\"); 
     }
 
     public function render()

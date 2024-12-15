@@ -72,7 +72,6 @@ class Listing extends Component
     public $listingCustomLabels = array() ;
     public $listingCustomIcons = array() ;
     public $listingCustomTitles = array() ;
-    public $listingCustomConfirms = array() ;
     public $listingCustombackgrounds = array() ;
     public $listingCustomColorTexts = array() ;
     public $listingCustomColorIcons = array() ;
@@ -379,7 +378,7 @@ public function PaginationOrderValue() {
 /////////////////////////////////////////////////////////////////////////////
 
 
-    public function CustomAdd($a,$b,$c,$d)
+    public function CustomAdd($a,$b,$c)
     {
 
         $key = array_key_exists($a, $this->listingCustoms);
@@ -390,8 +389,7 @@ public function PaginationOrderValue() {
             $this->listingCustomLabels[$a] = $b;
             $temp = $b .' the record' ;
             $this->listingCustomTitles[$a] = $temp;
-            $this->listingCustomConfirms[$a] = $c;
-            $this->listingCustomIcons[$a] = $d;
+            $this->listingCustomIcons[$a] = $c;
             $this->listingCustombackgrounds[$a] = 'darkblue';
             $this->listingCustomColorTexts[$a] = 'white';
             $this->listingCustomColorIcons[$a] = 'white' ;
