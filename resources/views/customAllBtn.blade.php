@@ -4,7 +4,7 @@
             <button @click="openCustom('{{$item->id}}','{{$key}}')"
               class="bg-[{{$listingCustombackgrounds[$key]}}] min-w-[40px] 
               text-[{{$listingCustomColorIcons[$key]}}] 
-             p-[8px] rounded-[3px]">
+             p-[8px] rounded-[3px] h-[44px]">
              <div class="flex">
                <div class="pt-[2px]">
              <span class="material-icons text-[20px]">
