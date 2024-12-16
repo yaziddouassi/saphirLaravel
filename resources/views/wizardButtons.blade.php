@@ -42,7 +42,7 @@
              <div>
                  <button wire:click="conteneurWizardCreateOther()"
                   class="border-[1px]  border-black  text-black p-[9px] rounded-[2px]">
-                   Créer un autre2
+                   Créer un autre
                </button>
              </div>
           @endif

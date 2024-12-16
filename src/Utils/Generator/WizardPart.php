@@ -315,7 +315,7 @@ public function getPiece4() {
 
             @foreach (\$entities as \$item)
             <tr class=\"border-b even:bg-[#ddd] odd:bg-[#e4e4e4]\">
-              <td class=\"min-w-[40px]\> <input class=\"groupId\" @click=\"addtabs()\"
+              <td class=\"min-w-[40px]\"> <input class=\"groupId\" @click=\"addtabs()\"
                  type=\"checkbox\" wire:ignore value=\"{{\$item->id}}\" id=\"{{\$item->id}}\"  />  </td>
               <td class=\"py-3 px-4\">{{\$item->id}}</td>
               <td class=\"py-3 px-4 w-[300px]\">
