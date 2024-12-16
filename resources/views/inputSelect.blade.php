@@ -8,8 +8,8 @@
          class="w-full  bg-[#E8E8E8] h-[50px]
         border-[darkblue] border-[1px]">
             <option value=""></option>
-            @foreach ($collection as $item)
-                <option value="{{$item}}">{{$item}}</option>
+            @foreach ($collection as $key => $item)
+                <option value="{{$item}}">{{$labels[$key]}}</option>
             @endforeach
         </select> 
     </div>
