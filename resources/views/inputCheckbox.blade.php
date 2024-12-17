@@ -4,12 +4,26 @@ init() {
 console.log('hello');
 
 if($wire.saphirFields.{{$field}} == null) {
-        this.content = false
+        this.content = 0
+        }
+
+if($wire.saphirFields.{{$field}} == 'false') {
+        this.content = 0
+        }
+
+if($wire.saphirFields.{{$field}} == 'true') {
+        this.content = 1
         }
 
 $watch('content', value => {
         if($wire.saphirFields.{{$field}} == null) {
-        this.content = false
+        this.content = 0
+        }
+       if($wire.saphirFields.{{$field}} == 'false') {
+         this.content = 0
+        }
+      if($wire.saphirFields.{{$field}} == 'true') {
+         this.content = 1
         }
     });
 
