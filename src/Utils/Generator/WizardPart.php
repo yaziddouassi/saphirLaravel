@@ -255,10 +255,9 @@ class Edit extends WizardUpdate
     {
        foreach (\$this->saphirFields as \$key => \$value) {
            if (in_array(\$key,\$this->saphirRecord->getFillable())) {
-           if(\$this->saphirFields[\$key] != null && \$this->saphirFields[\$key] != ''
-           && \$this->saphirFields[\$key] != [] ) {
-              \$this->saphirRecord[\$key] = \$value ;
-            }
+             if(\$value != null &&  \$value != ''  && \$value != [] ) {
+                \$this->saphirRecord[\$key] = \$value ;
+              }
           }  
        }
 

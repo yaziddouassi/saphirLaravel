@@ -668,9 +668,9 @@ public function PaginationOrderValue() {
 
         foreach ($this->saphirFields as $key => $value) {
             if (in_array($key, $a)) {
-                if($this->saphirFields[$key] != null && $this->saphirFields[$key] != ''
-                  && $this->saphirFields[$key] != [] ) {
-                  $this->saphirRecord[$key] = $this->saphirFields[$key] ;
+                if($value != null && $value != ''
+                  && $value != [] ) {
+                  $this->saphirRecord[$key] = $value ;
             }  
            }
          }
