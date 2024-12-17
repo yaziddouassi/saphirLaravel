@@ -25,8 +25,11 @@
         </div>
         <div class="mt-[-44px]">
             @if ($saphirRecord != null)
-            <img src="{{$saphirUrlStorage}}{{ $saphirRecord[$file]}}" width="100%" class="max-h-[50vh]"
+            <div class="border-[1px] border-black">
+            <img src="{{$saphirUrlStorage}}{{ $saphirRecord[$file]}}" width="100%" 
+            class="min-h-[50px] max-h-[50vh]"
             alt="Image not found!"> 
+            </div>
             @endif
 
         </div>  
