@@ -85,7 +85,6 @@ public function saphirInit($id) {
     foreach ($this->saphirFields as $cle => $fields) {
         if (in_array($cle,$this->saphirRecord->getFillable())) {
         $this->saphirFields[$cle] =  $this->saphirRecord[$cle];
-            }
        } 
 }
 
