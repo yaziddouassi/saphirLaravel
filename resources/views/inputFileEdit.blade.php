@@ -19,12 +19,15 @@
 
     
     
-    <div class="mt-[-5px] text-white bg-[#777] p-[10px] pb-[20px] pt-[0px] rounded-[5px]" 
+    <div class="pb-[20px] pt-[0px] " 
        x-show="!$wire.saphirFile0pens.{{$file}}">
-        <div class="text-right relative text-[red] text-[32px] font-[arial] pr-[5px] z-[100]">
-            <span @click="$wire.saphirFile0pens.{{$file}}=true" class="cursor-pointer">C</span><span @click="$wire.saphirFile0pens.{{$file}}=true" class="text-[#CCC] cursor-pointer">lo</span ><span @click="$wire.saphirFile0pens.{{$file}}=true" class="cursor-pointer">se</span>
+        <div class="text-center bg-[#CFCFCF] h-[50px]  text-[32px]
+         font-[arial] pr-[5px] border-[BLACK] border-[1px]"
+        @click="$wire.saphirFile0pens.{{$file}}=true">
+            Close
          </div>
-         <div>
+         <div class="bg-[#DDD] text-black border-[2px] border-white mt-[10px]
+          p-[10px] pb-[20px] pt-[20px] rounded-[5px]">
             @if ($saphirRecord != null)
             {{ $saphirRecord[$file] }}   
             @endif
@@ -32,9 +35,10 @@
          </div>
     </div>
     
-    <div class="pt-[5px] bg-[#777]">
+    <div>
         @if ($saphirFiles[$file])
-         <div class="text-white mt-[10px] p-[10px] pb-[20px] pt-[5px] rounded-[5px]">
+         <div class="bg-[#DDD] text-black border-[2px] border-white mt-[10px]
+          p-[10px] pb-[20px] pt-[20px] rounded-[5px]">
             {{ $saphirFiles[$file]->getClientOriginalName() }}
          </div>
         @endif

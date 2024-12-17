@@ -18,7 +18,8 @@
 
     <div class="pt-[5px]">
         @if ($saphirFiles[$file])
-         <div class="bg-black text-white mt-[10px] p-[10px] pb-[20px] pt-[20px] rounded-[5px]">
+         <div class="bg-[#DDD] text-black border-[2px] border-white mt-[10px]
+          p-[10px] pb-[20px] pt-[20px] rounded-[5px]">
             {{ $saphirFiles[$file]->getClientOriginalName() }}
          </div>
         @endif

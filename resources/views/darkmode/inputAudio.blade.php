@@ -21,8 +21,7 @@
             @if ($saphirFiles[$file])
             <div class="pt-[5px]">
               <figure>
-                <figcaption class="text-[white] p-[8px] pt-[17px] pb-[17px] bg-[black] rounded-[3px]">{{ $saphirFiles[$file]->getClientOriginalName() }}</figcaption>
-                <audio controls class="pt-[8px] w-[220px]" src="{{ $saphirFiles[$file]->temporaryUrl()}}">
+                <audio controls class="pt-[8px]  w-full" src="{{ $saphirFiles[$file]->temporaryUrl()}}">
                 </audio>
                </figure>
             </div>

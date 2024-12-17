@@ -13,20 +13,19 @@
         
             <div class="w-[100%]  flex items-center justify-center" x-show="$wire.saphirFile0pens.{{$file}}">
                 <label class="w-[100%]">
-                    <input type="file" wire:model="saphirFiles.{{$file}}"  hidden />
+                    <input type="file" wire:model="saphirFiles.{{$file}}"  accept="audio/*" hidden />
                     <div class="flex w-[100%] h-[50px] px-2 flex-col bg-[#ccc] rounded-full shadow text-[darkblue] text-[14px] font-semibold leading-4 items-center justify-center cursor-pointer focus:outline-none">Choose File</div>
                   </label>
             </div>
 
             <div x-show="!$wire.saphirFile0pens.{{$file}}">
-              <div class="bg-black h-[50px] text-center text-[#ccc] text-[20px] font-[arial] pt-[10px] pr-[5px] z-[100]">
+              <div class="bg-[#DDD] text-black border-[1px] border-black h-[50px] 
+              text-center text-[20px] font-[arial] pt-[10px] pr-[5px] z-[100]">
                 <span @click="$wire.saphirFile0pens.{{$file}}=true" class="cursor-pointer">Close Audio</span>
               </div>
               <div class="pt-[8px]">
                 @if ($saphirRecord != null)
                   <figure>
-                      <figcaption class="text-[white] p-[8px] pb-[16px] pt-[16px]
-                      bg-[darkblue] rounded-[3px]">{{ $saphirRecord[$file] }}</figcaption>
                       <audio controls class="pt-[8px] w-full"
                       src="{{$saphirUrlStorage}}{{ $saphirRecord[$file]}}">
                       </audio>
@@ -38,8 +37,7 @@
             @if ($saphirFiles[$file])
             <div class="pt-[7px]" x-show="$wire.saphirFile0pens.{{$file}}">
               <figure>
-                <figcaption class="text-[white] p-[8px] pt-[17px] pb-[17px] bg-[black] rounded-[3px]">{{ $saphirFiles[$file]->getClientOriginalName() }}</figcaption>
-                <audio controls class="pt-[8px]" src="{{ $saphirFiles[$file]->temporaryUrl() }}" >
+                <audio controls class="pt-[8px] w-full" src="{{ $saphirFiles[$file]->temporaryUrl() }}" >
                 </audio>
                </figure>
             </div>
