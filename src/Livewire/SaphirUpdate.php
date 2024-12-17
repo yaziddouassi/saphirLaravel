@@ -88,7 +88,7 @@ public function saphirInit($id) {
        } 
 }
 
-
+}
     
     public function render()
     {
