@@ -144,6 +144,7 @@ class Create extends WizardCreator
     {
 
         \$this->saphirInsert();
+        \$this->saphirRecord->save() ;
         \$this->saphirReset();
         
        \$this->js(\"const notyf = new Notyf({position: {x: 'right',y: 'top'}});
@@ -156,25 +157,6 @@ class Create extends WizardCreator
       \$this->wizardCreateOther();
      
        return \$this->redirect(\$this->saphirRouteListe, navigate: true);
-    }
-
-
-    public function saphirInsert()
-    {
-        \$this->saphirRecord = new \$this->saphirModelClass;
-       foreach (\$this->saphirFields as \$key => \$value) {
-           if (in_array(\$key,\$this->saphirRecord->getFillable())) {
-              \$this->saphirRecord[\$key] = \$value ;
-            }
-       }
-      
-       \$now = now();
-       \$this->saphirRecord['created_at'] = \$now;
-       \$this->saphirRecord['updated_at'] = \$now;
-
-       \$this->saphirUpload();
-       \$this->saphirRecord->save() ;
-
     }
 
 
@@ -253,15 +235,8 @@ class Edit extends WizardUpdate
 
     public function saphirUpdate()
     {
-       foreach (\$this->saphirFields as \$key => \$value) {
-           if (in_array(\$key,\$this->saphirRecord->getFillable())) {
-             if(\$value !== null &&  \$value !== ''  && \$value !== [] ) {
-                \$this->saphirRecord[\$key] = \$value ;
-              }
-          }  
-       }
 
-       \$this->saphirUpload();
+    \$this->saphirChanger();
 
     \$this->saphirRecord->save() ;
     \$this->js(\"const notyf = new Notyf({ position: {x: 'right',y: 'top'}});

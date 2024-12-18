@@ -12,7 +12,23 @@ use Illuminate\Support\Str;
 
 class SaphirCreator extends Component
 {
-    
+    public function saphirInsert()
+    {
+        $this->saphirRecord = new $this->saphirModelClass;
+       foreach ($this->saphirFields as $key => $value) {
+           if (in_array($key,$this->saphirRecord->getFillable())) {
+              $this->saphirRecord[$key] = $value ;
+            }
+       }
+      
+       $now = now();
+       $this->saphirRecord['created_at'] = $now;
+       $this->saphirRecord['updated_at'] = $now;
+
+       $this->saphirUpload();
+      
+    }
+
 
     public function saphirUpload()
        {

@@ -71,6 +71,21 @@ class WizardUpdate extends Component
     }
     
 
+    public function saphirChanger() {
+       
+        foreach ($this->saphirFields as $key => $value) {
+         if (in_array($key,$this->saphirRecord->getFillable())) {
+           if($value !== null  && $value !== '' && $value !== []) {
+            $this->saphirRecord[$key] = $value ;
+           }
+            }
+         }
+    
+         $this->saphirUpload();
+    
+    }
+    
+
     public function saphirUpload()
     {
      $randomString = Str::random(10);
