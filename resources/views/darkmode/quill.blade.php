@@ -61,7 +61,7 @@ that.content = that.quill.root.innerHTML;
 }">
 
 <div class="w-full mb-[5px]">
-<span class="text-[white]">{{$label}}</span><span class="text-[red]">@if($required==true)*@endif</span> 
+<span class="text-[white] font-bold">{{$label}}</span><span class="text-[red]">@if($required==true)*@endif</span> 
 </div>
 <div class="bg-white" wire:ignore>
 <div  id="quill-{{$field}}" class="bg-white min-h-[200px]"></div>

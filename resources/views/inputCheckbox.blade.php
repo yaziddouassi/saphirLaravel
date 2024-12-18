@@ -34,7 +34,7 @@ if($wire.saphirFields.{{$field}} == 1) {
 
 }">
     <div class="w-full mb-[5px]">
-       <span class="text-[darkblue]">{{$label}}</span>
+       <span class="text-[darkblue] font-bold">{{$label}}</span>
     </div>
     <div>
        <input type="checkbox" wire:model="saphirFields.{{$field}}" 

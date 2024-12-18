@@ -9,7 +9,7 @@
     }">
 
     <div class="w-full mb-[5px]">
-        <span class="text-[white]">{{$label}}</span><span class="text-[red]">@if($required==true)*@endif</span> 
+        <span class="text-[white] font-bold">{{$label}}</span><span class="text-[red]">@if($required==true)*@endif</span> 
      </div>
 
         <input id="trixeditor-{{$field}}" type="hidden"  

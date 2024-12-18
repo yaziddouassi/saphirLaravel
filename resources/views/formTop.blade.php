@@ -8,7 +8,7 @@
             </div>
             <div>
               <a href="{{$saphirRouteListe}}" wire:navigate>
-            <button class="bg-[black]  text-white p-[9px] rounded-[2px]">
+            <button class="bg-[black] min-w-[100px] text-white p-[9px] rounded-[2px]">
               {{$saphirModelLabel}}
               </button>
             </a>
