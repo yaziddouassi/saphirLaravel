@@ -69,6 +69,7 @@ class Listing extends Component
     public $listingCustomTypes = array() ;
     public $listingCustomInputs = array() ;
     public $listingCustomOnModals = array() ;
+    public $listingCustomOnModalWidths = array() ;
     public $listingCustomLabels = array() ;
     public $listingCustomIcons = array() ;
     public $listingCustomTitles = array() ;
@@ -394,6 +395,7 @@ public function PaginationOrderValue() {
             $this->listingCustomColorTexts[$a] = 'white';
             $this->listingCustomColorIcons[$a] = 'white' ;
             $this->listingCustomOnModals[$a] = 'RecordInit' ;
+            $this->listingCustomOnModalWidths[$a] = '300px' ;
            }
 
     }
@@ -429,6 +431,14 @@ public function PaginationOrderValue() {
            $key = array_key_exists($a, $this->listingCustoms);
            if ($key === true) {
                $this->listingCustomOnModals[$a] = $b;
+              } 
+    }
+
+    public function CustomModalWidth($a,$b)
+    {
+           $key = array_key_exists($a, $this->listingCustoms);
+           if ($key === true) {
+               $this->listingCustomOnModalWidths[$a] = $b;
               } 
     }
 

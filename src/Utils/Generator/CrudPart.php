@@ -60,7 +60,7 @@ class Liste extends Listing
 
     public function InitCustom() {}
     public function InitAction() {}
-    public function InitSearch() { }
+    public function InitSearch() {}
     public function InitFilter() {}
     public function InitQuery() {}
     

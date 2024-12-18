@@ -1,4 +1,5 @@
-<div class="w-full max-w-[1000px] m-auto p-[10px] bg-[#111]">
+<div class="w-full max-w-[{{$listingCustomOnModalWidths[$index]}}]
+ m-auto p-[10px] bg-[#111]">
 
      <div class="text-[20px] text-[#ddd] text-center font-bold">
         {{$listingCustomTitles[$index]}} N° {{$activeId}}
