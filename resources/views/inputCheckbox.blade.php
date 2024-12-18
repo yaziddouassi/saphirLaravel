@@ -1,31 +1,34 @@
 <div x-data="{content : $wire.entangle('saphirFields.{{$field}}'),
 
 init() {
-console.log('hello');
-
-if($wire.saphirFields.{{$field}} == null) {
-        this.content = 0
-        }
-
-if($wire.saphirFields.{{$field}} == 'false') {
-        this.content = 0
-        }
-
-if($wire.saphirFields.{{$field}} == 'true') {
-        this.content = 1
-        }
+ this.changerValeur() ;
 
 $watch('content', value => {
-        if($wire.saphirFields.{{$field}} == null) {
-        this.content = 0
-        }
-       if($wire.saphirFields.{{$field}} == 'false') {
-         this.content = 0
-        }
-      if($wire.saphirFields.{{$field}} == 'true') {
-         this.content = 1
-        }
+       this.changerValeur() ;
     });
+
+},
+
+changerValeur() {
+
+var nameField = document.getElementById('saphir-checkbox-{{$field}}');
+if($wire.saphirFields.{{$field}} == null) {
+        this.content = 0 ;
+        }
+
+if($wire.saphirFields.{{$field}} == false) {
+        this.content = 0 ;
+        }
+
+if($wire.saphirFields.{{$field}} == true) {
+        this.content = 1 ;
+        }
+if($wire.saphirFields.{{$field}} == 0) {
+        nameField.checked = false; 
+        }
+if($wire.saphirFields.{{$field}} == 1) {
+        nameField.checked = true; 
+        }
 
 }
 
@@ -34,6 +37,7 @@ $watch('content', value => {
        <span class="text-[darkblue]">{{$label}}</span>
     </div>
     <div>
-       <input type="checkbox" wire:model="saphirFields.{{$field}}" class="bg-[#E8E8E8]">
+       <input type="checkbox" wire:model="saphirFields.{{$field}}" 
+       id="saphir-checkbox-{{$field}}"  class="bg-[#E8E8E8]">
     </div>
  </div>
