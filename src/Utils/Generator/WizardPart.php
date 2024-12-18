@@ -48,6 +48,7 @@ class Liste extends Listing
     public \$listingRoute = \"$e\";
     public \$listingModelClass = \"$f\";
     public \$saphirFields = [];
+    public \$saphirMultiples = [];
     public \$saphirFiles =  [];
     public \$saphirRecord = null;
 
@@ -113,6 +114,7 @@ class Create extends WizardCreator
     public \$saphirRouteListe = \"$g\";
     public \$saphirRecord = null;
     public \$saphirFields = ['name' => null,'city' => null];
+    public \$saphirMultiples = [];
     public \$saphirFiles =  [];
     public \$wizardStops =  []; 
     public \$wizardShowOther = true ;
@@ -202,6 +204,7 @@ class Edit extends WizardUpdate
     public \$saphirRouteListe = \"$g\";
     public \$saphirRecord = null;
     public \$saphirFields = ['name' => null,'city' => null];
+    public \$saphirMultiples = [];
     public \$saphirFiles =  [];
     public \$wizardStops =  []; 
 

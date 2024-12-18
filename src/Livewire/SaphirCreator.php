@@ -56,6 +56,10 @@ class SaphirCreator extends Component
         foreach ($this->saphirFields as $key => $value) {
             $tabValidation["saphirFields.$key"] = $key;
         }
+
+        foreach ($this->saphirMultiples as $key => $value) {
+            $tabValidation["saphirMultiples.$key"] = $key;
+        }
         
         // Loop through saphirFiles
         foreach ($this->saphirFiles as $cle => $item) {
