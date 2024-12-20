@@ -45,7 +45,7 @@ public function saphirChanger() {
 
      foreach ($this->saphirMultiples as $key => $value) {
         if (in_array($key,$this->saphirRecord->getFillable())) {
-           $this->saphirRecord[$key] = json_encode($value) ;
+           $this->saphirRecord[$key] = $value ;
          }
     }
 
@@ -114,7 +114,7 @@ public function saphirInit($id) {
 
     foreach ($this->saphirMultiples as $cle => $fields) {
         if (in_array($cle,$this->saphirRecord->getFillable())) {
-        $this->saphirMultiples[$cle] = json_decode($this->saphirRecord[$cle]) ;
+        $this->saphirMultiples[$cle] = $this->saphirRecord[$cle] ;
        } 
     }
 

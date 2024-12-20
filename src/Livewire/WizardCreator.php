@@ -87,7 +87,7 @@ class WizardCreator extends Component
 
        foreach ($this->saphirMultiples as $key => $value) {
         if (in_array($key,$this->saphirRecord->getFillable())) {
-           $this->saphirRecord[$key] = json_encode($value) ;
+           $this->saphirRecord[$key] = $value ;
          }
        }
       

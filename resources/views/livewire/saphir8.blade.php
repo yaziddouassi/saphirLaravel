@@ -60,7 +60,7 @@
       <div class="pt-[10px]">
       <label class="flex items-center">
          <input type="checkbox" wire:model="remember" class="form-checkbox text-blue-600">
-         <span class="ml-2 text-gray-700 text-sm">Remember Me</span>
+         <span class="ml-2 text-white text-sm">Remember Me</span>
      </label>
    </div>
 

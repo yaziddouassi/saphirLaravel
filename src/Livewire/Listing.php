@@ -504,7 +504,7 @@ public function PaginationOrderValue() {
          foreach ($this->saphirMultiples as $key => $value) {
             $this->saphirMultiples[$key] = null ;
             if (in_array($key,$this->saphirRecord->getFillable())) {
-                $this->saphirMultiples[$key] = json_decode($this->saphirRecord[$key]) ;
+                $this->saphirMultiples[$key] = $this->saphirRecord[$key] ;
             } 
          }
 
@@ -696,7 +696,7 @@ public function PaginationOrderValue() {
          foreach ($this->saphirMultiples as $key => $value) {
             if (in_array($key, $b)) {
                if (in_array($key,$this->saphirRecord->getFillable())) { 
-                  $this->saphirRecord[$key] = json_encode($value)  ;
+                  $this->saphirRecord[$key] = $value  ;
               }    
            }
          }
