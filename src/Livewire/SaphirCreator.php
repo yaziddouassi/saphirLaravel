@@ -15,12 +15,21 @@ class SaphirCreator extends Component
     public function saphirInsert()
     {
         $this->saphirRecord = new $this->saphirModelClass;
+
        foreach ($this->saphirFields as $key => $value) {
            if (in_array($key,$this->saphirRecord->getFillable())) {
               $this->saphirRecord[$key] = $value ;
             }
        }
+
+
+       foreach ($this->saphirMultiples as $key => $value) {
+        if (in_array($key,$this->saphirRecord->getFillable())) {
+           $this->saphirRecord[$key] = json_encode($value) ;
+         }
+    }
       
+
        $now = now();
        $this->saphirRecord['created_at'] = $now;
        $this->saphirRecord['updated_at'] = $now;
@@ -74,6 +83,10 @@ class SaphirCreator extends Component
     {
         foreach ($this->saphirFields as $key => $value) {
             $this->saphirFields[$key] = null ;
+         }
+
+         foreach ($this->saphirMultiples as $key => $value) {
+            $this->saphirMultiples[$key] = [] ;
          }
 
          foreach ($this->saphirFiles as $key => $value) {

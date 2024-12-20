@@ -78,6 +78,12 @@ class WizardUpdate extends Component
             $this->saphirRecord[$key] = $value ;
             }
          }
+
+         foreach ($this->saphirMultiples as $key => $value) {
+            if (in_array($key,$this->saphirRecord->getFillable())) {
+               $this->saphirRecord[$key] = json_encode($value) ;
+             }
+        }
     
          $this->saphirUpload();
     
@@ -136,6 +142,14 @@ class WizardUpdate extends Component
            $this->saphirFields[$cle] =  $this->saphirRecord[$cle];
           }
        } 
+       
+       foreach ($this->saphirMultiples as $cle => $fields) {
+        if (in_array($cle,$this->saphirRecord->getFillable())) {
+        $this->saphirMultiples[$cle] = json_decode($this->saphirRecord[$cle]) ;
+       } 
+    }
+
+
    }
 
 

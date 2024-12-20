@@ -501,6 +501,14 @@ public function PaginationOrderValue() {
             } 
          }
 
+         foreach ($this->saphirMultiples as $key => $value) {
+            $this->saphirMultiples[$key] = null ;
+            if (in_array($key,$this->saphirRecord->getFillable())) {
+                $this->saphirMultiples[$key] = json_decode($this->saphirRecord[$key]) ;
+            } 
+         }
+
+
          $this->resetValidation();
 
          
@@ -674,18 +682,30 @@ public function PaginationOrderValue() {
     //////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////
 
-    public function saphirInsertAll($a , $b) {
+    public function saphirInsertAll($a ,$b, $c) {
 
         foreach ($this->saphirFields as $key => $value) {
             if (in_array($key, $a)) {
+                if (in_array($key,$this->saphirRecord->getFillable())) {
                   $this->saphirRecord[$key] = $value ;
+                }  
            }
          }
+
+
+         foreach ($this->saphirMultiples as $key => $value) {
+            if (in_array($key, $b)) {
+               if (in_array($key,$this->saphirRecord->getFillable())) { 
+                  $this->saphirRecord[$key] = json_encode($value)  ;
+              }    
+           }
+         }
+
 
         $randomString = Str::random(10);
         $randomString;
         foreach ($this->saphirFiles as $key => $value) {
-         if (in_array($key, $b)) {
+         if (in_array($key, $c)) {
          if($this->saphirFiles[$key] != null) {
          $ext = $this->saphirFiles[$key]->getClientOriginalName();
          $name1 = time(). '-'. $randomString .'-'.$ext;
