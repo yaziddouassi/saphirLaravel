@@ -18,6 +18,11 @@
                   </label>
             </div>
 
+            <!-- Progress Bar -->
+            <div x-show="isUploading">
+              <progress max="100" x-bind:value="progress" class="h-[10px] bg-[blue] rounded-[5px]"></progress>
+            </div>
+
             @if ($saphirFiles[$file])
             <div class="pt-[5px]">
               <figure>
@@ -33,9 +38,5 @@
               </div>
              @enderror
 
-            <!-- Progress Bar -->
-            <div x-show="isUploading">
-                <progress max="100" x-bind:value="progress" class="h-[10px] bg-[blue] rounded-[5px]"></progress>
-            </div>
         
 </div>

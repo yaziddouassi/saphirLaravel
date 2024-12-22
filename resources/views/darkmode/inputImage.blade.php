@@ -16,6 +16,11 @@
           </label>
     </div>
 
+     <!-- Progress Bar -->
+     <div x-show="isUploading">
+        <progress max="100" x-bind:value="progress" class="h-[10px] bg-[blue] rounded-[5px]"></progress>
+    </div>
+
     <div class="pt-[5px]">
         @if ($saphirFiles[$file])
         <img src="{{ $saphirFiles[$file]->temporaryUrl() }}" width="100%" class="max-h-[50vh]">
@@ -30,9 +35,5 @@
     </div>
     @enderror
   
-    <!-- Progress Bar -->
-    <div x-show="isUploading">
-        <progress max="100" x-bind:value="progress" class="h-[10px] bg-[blue] rounded-[5px]"></progress>
-    </div>
-
+   
 </div>

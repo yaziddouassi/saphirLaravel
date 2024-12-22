@@ -18,6 +18,13 @@
                     <div class="flex w-[100%] h-[50px] px-2 flex-col bg-[#ccc] rounded-full shadow text-[darkblue] text-[14px] font-semibold leading-4 items-center justify-center cursor-pointer focus:outline-none">Choose Video</div>
                   </label>
             </div>
+
+            
+            <!-- Progress Bar -->
+            <div x-show="isUploading">
+              <progress max="100" x-bind:value="progress" class="h-[10px] bg-[blue] rounded-[5px]"></progress>
+          </div>
+      
         
             <div class="pt-[5px]">
               @if ($saphirFiles[$file]) 
@@ -33,9 +40,5 @@
               </div>
              @enderror
 
-            <!-- Progress Bar -->
-            <div x-show="isUploading">
-                <progress max="100" x-bind:value="progress" class="h-[10px] bg-[blue] rounded-[5px]"></progress>
-            </div>
-        
+
 </div>

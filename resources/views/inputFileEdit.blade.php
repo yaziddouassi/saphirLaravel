@@ -16,8 +16,10 @@
           </label>
     </div>
 
-
-    
+    <!-- Progress Bar -->
+    <div x-show="isUploading">
+        <progress max="100" x-bind:value="progress" class="h-[10px] bg-[blue] rounded-[5px]"></progress>
+    </div>
     
     <div class="pb-[20px] pt-[0px] " 
        x-show="!$wire.saphirFile0pens.{{$file}}">
@@ -51,9 +53,5 @@
     </div>
     @enderror
   
-    <!-- Progress Bar -->
-    <div x-show="isUploading">
-        <progress max="100" x-bind:value="progress" class="h-[10px] bg-[blue] rounded-[5px]"></progress>
-    </div>
-
+    
 </div>
