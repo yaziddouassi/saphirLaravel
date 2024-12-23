@@ -56,6 +56,25 @@ class SaphirCreator extends Component
            }
  
         }
+
+
+        foreach ($this->saphirMultipleFiles as $cle => $item) {
+         
+            $temp = [] ;
+            foreach ($item as $key => $value) {
+              $ext = $value->getClientOriginalName();
+              $name1 = time(). '-'. $randomString .'-'.$ext;
+              $folder = $this->saphirModel . '/'  .$cle  ;
+              $name2 = $folder. '/' . $name1;
+              $value->storeAs($folder,$name1, 'public');
+              array_push($temp, $name2);
+            }
+
+            $this->saphirRecord[$cle] =  $temp;  
+    
+           }
+     
+
     }
 
     public function saphirRename() {
@@ -97,6 +116,10 @@ class SaphirCreator extends Component
             $this->saphirFiles[$key] = null ;
          }
     }
+
+    public function saphirDeleteFileByKey($a,$b) {
+        unset($this->saphirMultipleFiles[$a][$b]);
+     }
     
     
     public function render()

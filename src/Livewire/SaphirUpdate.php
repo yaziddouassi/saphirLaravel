@@ -38,6 +38,33 @@ public function rezetSaphirFiles() {
 
   
 public function saphirChanger() {
+
+
+    $tab1s = [] ;
+    $tab2s = [] ;
+
+    foreach ($this->saphirMultipleFiles as $key => $value) {
+        $this->saphirMultipleFileErrors[$key] = 1;
+        $tab1s["saphirMultipleFileErrors.$key"] = 'required';
+        $tab2s["saphirMultipleFileErrors.$key"] = $key;
+
+        if (in_array($key, $this->saphirNullables)) {
+            if ($value === []) {
+                if ($this->saphirMultipleFileRecords[$key] === []) {
+                  $this->saphirMultipleFileErrors[$key] = null;
+                }
+            }
+        }
+
+    }
+
+    $validated2 = $this->validate(
+                   $tab1s
+                   ,[], 
+                  $tab2s
+                 );
+
+    
        
     foreach ($this->saphirFields as $key => $value) {
      if (in_array($key,$this->saphirRecord->getFillable())) {
@@ -73,6 +100,25 @@ public function saphirChanger() {
       $this->saphirRecord[$key] =  $name2;
         }
      }
+
+
+     foreach ($this->saphirMultipleFiles as $cle => $item) {
+         
+        $temp = [] ;
+        foreach ($item as $key => $value) {
+          $ext = $value->getClientOriginalName();
+          $name1 = time(). '-'. $randomString .'-'.$ext;
+          $folder = $this->saphirModel . '/'  .$cle  ;
+          $name2 = $folder. '/' . $name1;
+          $value->storeAs($folder,$name1, 'public');
+          array_push($temp, $name2);
+        }
+        $mergedArray = array_merge($temp, $this->saphirMultipleFileRecords[$cle]);
+        $this->saphirRecord[$cle] = $mergedArray ;  
+
+       }
+
+
 
      $this->rezetSaphirFiles();
      $this->rezetSaphirFile0pens();
@@ -132,6 +178,17 @@ public function saphirInit($id) {
 
 
 }
+
+
+public function saphirDeleteFileByKey($a,$b) {
+    unset($this->saphirMultipleFiles[$a][$b]);
+ }
+
+ public function saphirDeleteFileRecordByKey($a,$b) {
+   unset($this->saphirMultipleFileRecords[$a][$b]);
+ }
+
+
     
     public function render()
     {
