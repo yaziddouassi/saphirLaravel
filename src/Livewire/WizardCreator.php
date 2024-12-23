@@ -28,6 +28,10 @@ class WizardCreator extends Component
             $this->saphirMultiples[$key] = [] ;
          }
 
+         foreach ($this->saphirMultipleFiles as $key => $value) {
+            $this->saphirMultipleFiles[$key] = [] ;
+         }
+
          foreach ($this->saphirFiles as $key => $value) {
             $this->saphirFiles[$key] = null ;
          }
