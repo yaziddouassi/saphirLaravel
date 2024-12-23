@@ -14,6 +14,8 @@ class SaphirUpdate extends Component
 {
 
    public $saphirFile0pens =  [];
+   public $saphirMultipleFileRecords =  [];
+   public $saphirMultipleFileErrors =  [];
 
    public function conteneurSaphirUpdate()
    {
@@ -119,6 +121,12 @@ public function saphirInit($id) {
     foreach ($this->saphirMultiples as $cle => $fields) {
         if (in_array($cle,$this->saphirRecord->getFillable())) {
         $this->saphirMultiples[$cle] = $this->saphirRecord[$cle] ;
+       } 
+    }
+
+    foreach ($this->saphirMultipleFiles as $cle => $fields) {
+        if (in_array($cle,$this->saphirRecord->getFillable())) {
+        $this->saphirMultipleFileRecords[$cle] = $this->saphirRecord[$cle] ;
        } 
     }
 

@@ -17,6 +17,8 @@ class WizardUpdate extends Component
     public $wizardSteps = 0 ;
     public $wizardLabels = array() ;
     public $saphirFile0pens =  [];
+    public $saphirMultipleFileRecords =  [];
+    public $saphirMultipleFileErrors =  [];
 
 
     public function wizardInit($steps,$labels)
@@ -150,6 +152,12 @@ class WizardUpdate extends Component
        foreach ($this->saphirMultiples as $cle => $fields) {
         if (in_array($cle,$this->saphirRecord->getFillable())) {
         $this->saphirMultiples[$cle] = $this->saphirRecord[$cle] ;
+       } 
+    }
+
+    foreach ($this->saphirMultipleFiles as $cle => $fields) {
+        if (in_array($cle,$this->saphirRecord->getFillable())) {
+        $this->saphirMultipleFileRecords[$cle] = $this->saphirRecord[$cle] ;
        } 
     }
 

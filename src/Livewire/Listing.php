@@ -29,6 +29,8 @@ class Listing extends Component
     public $tableFilters = array();
 
     public $saphirFile0pens =  [];
+    public $saphirMultipleFileRecords =  [];
+    public $saphirMultipleFileErrors =  [];
 
     protected $queryFilter;
     protected $tables;
@@ -508,6 +510,13 @@ public function PaginationOrderValue() {
             } 
          }
 
+         foreach ($this->saphirMultipleFiles as $key => $fields) {
+            $this->saphirMultipleFiles[$key] = [] ;
+            if (in_array($key,$this->saphirRecord->getFillable())) {
+            $this->saphirMultipleFileRecords[$key] = $this->saphirRecord[$key] ;
+           } 
+        }
+
 
          $this->resetValidation();
 
@@ -740,7 +749,7 @@ public function PaginationOrderValue() {
         foreach ($this->saphirMultiples as $key => $value) {
             $tabValidation["saphirMultiples.$key"] = $key;
         }
-        
+
         foreach ($this->saphirMultipleFiles as $key => $value) {
             $tabValidation["saphirMultipleFiles.$key"] = $key;
         }
