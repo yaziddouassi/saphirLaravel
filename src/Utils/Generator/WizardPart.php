@@ -47,10 +47,12 @@ class Liste extends Listing
     public \$saphirModelName = \"$d\";
     public \$listingRoute = \"$e\";
     public \$listingModelClass = \"$f\";
+    public \$saphirRecord = null;
+    public \$saphirNullables = [];
     public \$saphirFields = [];
     public \$saphirMultiples = [];
     public \$saphirFiles =  [];
-    public \$saphirRecord = null;
+    public \$saphirMultipleFiles = [];
 
 
     public function mount() {
@@ -113,9 +115,11 @@ class Create extends WizardCreator
     public \$saphirModelClass = \"$f\";
     public \$saphirRouteListe = \"$g\";
     public \$saphirRecord = null;
+    public \$saphirNullables = [];
     public \$saphirFields = ['name' => null,'city' => null];
     public \$saphirMultiples = [];
     public \$saphirFiles =  [];
+    public \$saphirMultipleFiles = [];
     public \$wizardStops =  []; 
     public \$wizardShowOther = true ;
 
@@ -203,9 +207,11 @@ class Edit extends WizardUpdate
     public \$saphirModelClass = \"$f\";
     public \$saphirRouteListe = \"$g\";
     public \$saphirRecord = null;
+    public \$saphirNullables = [];
     public \$saphirFields = ['name' => null,'city' => null];
     public \$saphirMultiples = [];
     public \$saphirFiles =  [];
+    public \$saphirMultipleFiles = [];
     public \$wizardStops =  []; 
 
     public function mount(\$id) {

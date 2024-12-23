@@ -89,6 +89,10 @@ public function saphirChanger() {
     foreach ($this->saphirMultiples as $key => $value) {
         $tabValidation["saphirMultiples.$key"] = $key;
     }
+
+    foreach ($this->saphirMultipleFiles as $key => $value) {
+        $tabValidation["saphirMultipleFiles.$key"] = $key;
+    }
     
     // Loop through saphirFiles
     foreach ($this->saphirFiles as $cle => $item) {

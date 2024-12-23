@@ -8,7 +8,7 @@
            
 
             <div class="mb-[5px]">
-                <span class="text-[darkblue] font-bold">{{$label}}</span><span class="text-[red]">@if($required==true)*@endif</span> 
+                <span class="text-[white] font-bold">{{$label}}</span><span class="text-[red]">@if($required==true)*@endif</span> 
              </div>
         
             <div class="w-[100%]  flex items-center justify-center">
@@ -20,7 +20,7 @@
         
            
             @foreach ($saphirMultipleFiles[$file] as $key => $item)
-            <div class="pt-[5px] flex">
+            <div class="pt-[5px] flex text-white">
                 <div class="w-full">
                     @if ($item) 
                       <video width="100%" class="max-h-[50vh]" controls

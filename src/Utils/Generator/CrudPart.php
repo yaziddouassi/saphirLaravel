@@ -48,10 +48,12 @@ class Liste extends Listing
     public \$saphirModelName = \"$d\";
     public \$listingRoute = \"$e\";
     public \$listingModelClass = \"$f\";
+    public \$saphirRecord = null;
+    public \$saphirNullables = [];
     public \$saphirFields = [];
     public \$saphirMultiples = [];
     public \$saphirFiles =  [];
-    public \$saphirRecord = null;
+    public \$saphirMultipleFiles = [];
 
 
     public function mount() {
@@ -115,11 +117,12 @@ class Create extends SaphirCreator
     public \$saphirModelTitle = \"$e\";
     public \$saphirModelClass = \"$f\";
     public \$saphirRouteListe = \"$g\";
+    public \$saphirNullables = [];
     public \$saphirRecord = null;
     public \$saphirFields = ['name' => null];
     public \$saphirMultiples = [];
     public \$saphirFiles =  [];
-    
+    public \$saphirMultipleFiles = [];
 
     public function mount() {
         \$this->saphirUrlStorage =  config('saphir.urlstorage');
@@ -192,11 +195,12 @@ class Edit extends SaphirUpdate
     public \$saphirModelTitle = \"$e\";
     public \$saphirModelClass = \"$f\";
     public \$saphirRouteListe = \"$g\";
+    public \$saphirNullables = [];
     public \$saphirRecord = null;
     public \$saphirFields = ['name' => null];
     public \$saphirMultiples = [];
     public \$saphirFiles =  [];
-    
+    public \$saphirMultipleFiles = [];
     
     public function mount(\$id) {
 

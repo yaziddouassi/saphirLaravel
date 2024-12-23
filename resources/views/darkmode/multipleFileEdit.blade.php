@@ -8,7 +8,7 @@
            
 
             <div class="mb-[5px]">
-                <span class="text-[darkblue] font-bold">{{$label}}</span><span class="text-[red]">@if($required==true)*@endif</span> 
+                <span class="text-[white] font-bold">{{$label}}</span><span class="text-[red]">@if($required==true)*@endif</span> 
              </div>
         
             <div class="w-[100%]  flex items-center justify-center">
@@ -23,8 +23,8 @@
             </div>
             
             @foreach ($saphirMultipleFiles[$file] as $key => $item)
-            <div class="flex bg-[#DDD] text-black border-[2px] border-white mt-[10px]
-          p-[10px] pb-[20px] pt-[20px] rounded-[5px]">
+            <div class="flex bg-[#DDD] border-[2px] border-white mt-[10px]
+          p-[10px] pb-[20px] pt-[20px] rounded-[5px] text-white">
                 <div class="w-full">
                     @if ($item) 
                     {{ $item->getClientOriginalName() }}
@@ -42,8 +42,8 @@
 
 
             @foreach ($saphirMultipleFileRecords[$file] as $key => $item)
-            <div class="flex bg-[#DDD] text-black border-[2px] border-white mt-[10px]
-          p-[10px] pb-[20px] pt-[20px] rounded-[5px]">
+            <div class="flex bg-[#DDD] border-[2px] border-white mt-[10px]
+          p-[10px] pb-[20px] pt-[20px] rounded-[5px] text-white">
                 <div class="w-full">
                     @if ($item) 
                     {{ $item}}
