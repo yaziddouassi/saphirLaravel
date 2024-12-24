@@ -24,7 +24,7 @@
            
             @foreach ($saphirMultipleFiles[$file] as $key => $item)
             <div class="flex bg-[#DDD] border-[2px] border-white mt-[10px]
-          p-[10px] pb-[20px] pt-[20px] rounded-[5px] text-white">
+          p-[10px] pb-[20px] pt-[20px] rounded-[5px] text-black">
                 <div class="w-full">
                     @if ($item) 
                     {{ $item->getClientOriginalName() }}

@@ -397,7 +397,7 @@ public function PaginationOrderValue() {
             $this->listingCustomColorTexts[$a] = 'white';
             $this->listingCustomColorIcons[$a] = 'white' ;
             $this->listingCustomOnModals[$a] = 'RecordInit' ;
-            $this->listingCustomOnModalWidths[$a] = '300px' ;
+            $this->listingCustomOnModalWidths[$a] = '600px' ;
            }
 
     }

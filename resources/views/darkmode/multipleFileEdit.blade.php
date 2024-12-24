@@ -24,7 +24,7 @@
             
             @foreach ($saphirMultipleFiles[$file] as $key => $item)
             <div class="flex bg-[#DDD] border-[2px] border-white mt-[10px]
-          p-[10px] pb-[20px] pt-[20px] rounded-[5px] text-white">
+          p-[10px] pb-[20px] pt-[20px] rounded-[5px] text-black">
                 <div class="w-full">
                     @if ($item) 
                     {{ $item->getClientOriginalName() }}
@@ -43,14 +43,14 @@
          @if ($saphirMultipleFileRecords != [])
             @foreach ($saphirMultipleFileRecords[$file] as $key => $item)
             <div class="flex bg-[#DDD] border-[2px] border-white mt-[10px]
-          p-[10px] pb-[20px] pt-[20px] rounded-[5px] text-white">
+          p-[10px] pb-[20px] pt-[20px] rounded-[5px] text-black">
                 <div class="w-full">
                     @if ($item) 
                     {{ $item}}
                      @endif
                 </div>
                 <div>
-                    <span class="material-icons text-[blue]
+                    <span class="material-icons text-[red]
                      text-[30px] cursor-pointer"
                      wire:click="saphirDeleteFileRecordByKey('{{$file}}','{{$key}}')">
                         delete_forever
