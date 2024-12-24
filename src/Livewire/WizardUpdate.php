@@ -44,6 +44,7 @@ class WizardUpdate extends Component
     public function conteneurWizardNext()
     {
         $this->wizardValidation($this->wizardCount);
+        $this->checkIfMultipleFileIsNotNull() ;
         $this->wizardCount = $this->wizardCount + 1 ;
     }
 
@@ -71,9 +72,9 @@ class WizardUpdate extends Component
             $this->saphirFiles[$key] = null ;
         }
     }
-    
 
-    public function saphirChanger() {
+
+    public function checkIfMultipleFileIsNotNull() {
 
         $tab1s = [] ;
         $tab2s = [] ;
@@ -83,13 +84,16 @@ class WizardUpdate extends Component
             $tab1s["saphirMultipleFileErrors.$key"] = 'required';
             $tab2s["saphirMultipleFileErrors.$key"] = $key;
     
-            if (in_array($key, $this->saphirNullables)) {
-                if ($value === []) {
-                    if ($this->saphirMultipleFileRecords[$key] === []) {
+                if ($value == []) {
+                    if ($this->saphirMultipleFileRecords[$key] == []) {
                       $this->saphirMultipleFileErrors[$key] = null;
                     }
                 }
-            }
+    
+                if (in_array($key, $this->saphirNullables)) {
+                    $this->saphirMultipleFileErrors[$key] = 1; 
+                }
+            
     
         }
     
@@ -99,7 +103,13 @@ class WizardUpdate extends Component
                       $tab2s
                      );
 
-       
+    }
+
+
+    public function saphirChanger() {
+
+        $this->checkIfMultipleFileIsNotNull() ;
+
         foreach ($this->saphirFields as $key => $value) {
          if (in_array($key,$this->saphirRecord->getFillable())) {
             $this->saphirRecord[$key] = $value ;

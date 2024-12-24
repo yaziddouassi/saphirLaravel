@@ -37,7 +37,7 @@
            </div>
          @endforeach
 
-
+         @if ($saphirMultipleFileRecords != [])
          @foreach ($saphirMultipleFileRecords[$file] as $key => $item)
          <div class="pt-[5px] flex text-white">
              <div class="w-full">
@@ -55,6 +55,7 @@
              </div>
         </div>
       @endforeach
+        @endif
         
          @error("saphirMultipleFiles.$file")
          <div class="text-[red] pt-[5px]">

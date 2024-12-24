@@ -36,9 +36,8 @@ public function rezetSaphirFiles() {
     }
 }
 
-  
-public function saphirChanger() {
 
+public function checkIfMultipleFileIsNotNull() {
 
     $tab1s = [] ;
     $tab2s = [] ;
@@ -48,13 +47,16 @@ public function saphirChanger() {
         $tab1s["saphirMultipleFileErrors.$key"] = 'required';
         $tab2s["saphirMultipleFileErrors.$key"] = $key;
 
-        if (in_array($key, $this->saphirNullables)) {
-            if ($value === []) {
-                if ($this->saphirMultipleFileRecords[$key] === []) {
+            if ($value == []) {
+                if ($this->saphirMultipleFileRecords[$key] == []) {
                   $this->saphirMultipleFileErrors[$key] = null;
                 }
             }
-        }
+
+            if (in_array($key, $this->saphirNullables)) {
+                $this->saphirMultipleFileErrors[$key] = 1; 
+            }
+        
 
     }
 
@@ -64,8 +66,13 @@ public function saphirChanger() {
                   $tab2s
                  );
 
-    
-       
+}
+
+  
+public function saphirChanger() {
+
+    $this->checkIfMultipleFileIsNotNull() ;
+   
     foreach ($this->saphirFields as $key => $value) {
      if (in_array($key,$this->saphirRecord->getFillable())) {
         $this->saphirRecord[$key] = $value ;

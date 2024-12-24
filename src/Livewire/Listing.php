@@ -514,7 +514,7 @@ public function PaginationOrderValue() {
             $this->saphirMultipleFiles[$key] = [] ;
             if (in_array($key,$this->saphirRecord->getFillable())) {
             $this->saphirMultipleFileRecords[$key] = $this->saphirRecord[$key] ;
-           } 
+          }
         }
 
 
@@ -694,29 +694,32 @@ public function PaginationOrderValue() {
     public function saphirInsertAll($a ,$b, $c,$d) {
 
 
-    $tab1s = [] ;
-    $tab2s = [] ;
-
-    foreach ($this->saphirMultipleFiles as $key => $value) {
-        $this->saphirMultipleFileErrors[$key] = 1;
-        $tab1s["saphirMultipleFileErrors.$key"] = 'required';
-        $tab2s["saphirMultipleFileErrors.$key"] = $key;
-
-        if (in_array($key, $this->saphirNullables)) {
-            if ($value === []) {
-                if ($this->saphirMultipleFileRecords[$key] === []) {
-                  $this->saphirMultipleFileErrors[$key] = null;
-                }
-            }
-        }
-
-    }
-
-    $validated2 = $this->validate(
-                   $tab1s
-                   ,[], 
-                  $tab2s
-                 );
+                 $tab1s = [] ;
+                 $tab2s = [] ;
+             
+                 foreach ($this->saphirMultipleFiles as $key => $value) {
+                     $this->saphirMultipleFileErrors[$key] = 1;
+                     $tab1s["saphirMultipleFileErrors.$key"] = 'required';
+                     $tab2s["saphirMultipleFileErrors.$key"] = $key;
+             
+                         if ($value == []) {
+                             if ($this->saphirMultipleFileRecords[$key] == []) {
+                               $this->saphirMultipleFileErrors[$key] = null;
+                             }
+                         }
+             
+                         if (in_array($key, $this->saphirNullables)) {
+                             $this->saphirMultipleFileErrors[$key] = 1; 
+                         }
+                     
+             
+                 }
+             
+                 $validated2 = $this->validate(
+                                $tab1s
+                                ,[], 
+                               $tab2s
+                              );
     
 
         foreach ($this->saphirFields as $key => $value) {
@@ -754,7 +757,7 @@ public function PaginationOrderValue() {
 
 
         foreach ($this->saphirMultipleFiles as $cle => $item) {
-            if (in_array($key, $d)) {
+            if (in_array($cle, $d)) {
             $temp = [] ;
             foreach ($item as $key => $value) {
               $ext = $value->getClientOriginalName();
@@ -768,8 +771,8 @@ public function PaginationOrderValue() {
             $this->saphirRecord[$cle] = $mergedArray ;  
     
            }
-        } 
-
+        
+        }
     }
 
 
