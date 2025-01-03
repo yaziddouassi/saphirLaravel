@@ -107,8 +107,10 @@ class WizardUpdate extends Component
 
 
     public function saphirChanger() {
-
-        $this->checkIfMultipleFileIsNotNull() ;
+        
+        if($this->saphirMultipleFiles != []) {
+            $this->checkIfMultipleFileIsNotNull() ;
+        }
 
         foreach ($this->saphirFields as $key => $value) {
          if (in_array($key,$this->saphirRecord->getFillable())) {

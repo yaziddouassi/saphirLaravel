@@ -693,34 +693,10 @@ public function PaginationOrderValue() {
 
     public function saphirInsertAll($a ,$b, $c,$d) {
 
-
-                 $tab1s = [] ;
-                 $tab2s = [] ;
-             
-                 foreach ($this->saphirMultipleFiles as $key => $value) {
-                     $this->saphirMultipleFileErrors[$key] = 1;
-                     $tab1s["saphirMultipleFileErrors.$key"] = 'required';
-                     $tab2s["saphirMultipleFileErrors.$key"] = $key;
-             
-                         if ($value == []) {
-                             if ($this->saphirMultipleFileRecords[$key] == []) {
-                               $this->saphirMultipleFileErrors[$key] = null;
-                             }
-                         }
-             
-                         if (in_array($key, $this->saphirNullables)) {
-                             $this->saphirMultipleFileErrors[$key] = 1; 
-                         }
-                     
-             
-                 }
-             
-                 $validated2 = $this->validate(
-                                $tab1s
-                                ,[], 
-                               $tab2s
-                              );
-    
+        if($this->saphirMultipleFiles != []) {
+            $this->checkIfMultipleFileIsNotNull() ;
+        }
+                
 
         foreach ($this->saphirFields as $key => $value) {
             if (in_array($key, $a)) {
@@ -773,6 +749,38 @@ public function PaginationOrderValue() {
            }
         
         }
+    }
+
+
+    public function checkIfMultipleFileIsNotNull() {
+
+        $tab1s = [] ;
+        $tab2s = [] ;
+             
+                 foreach ($this->saphirMultipleFiles as $key => $value) {
+                     $this->saphirMultipleFileErrors[$key] = 1;
+                     $tab1s["saphirMultipleFileErrors.$key"] = 'required';
+                     $tab2s["saphirMultipleFileErrors.$key"] = $key;
+             
+                         if ($value == []) {
+                             if ($this->saphirMultipleFileRecords[$key] == []) {
+                               $this->saphirMultipleFileErrors[$key] = null;
+                             }
+                         }
+             
+                         if (in_array($key, $this->saphirNullables)) {
+                             $this->saphirMultipleFileErrors[$key] = 1; 
+                         }
+                     
+             
+                 }
+             
+                 $validated2 = $this->validate(
+                                $tab1s
+                                ,[], 
+                               $tab2s
+                              );
+    
     }
 
 
