@@ -9,6 +9,7 @@ header('Expires: 0');
 use Livewire\Component;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class SaphirCreator extends Component
 {
@@ -22,6 +23,11 @@ class SaphirCreator extends Component
             }
        }
 
+       foreach ($this->saphirPasswords as $key => $value) {
+        if (in_array($key,$this->saphirRecord->getFillable())) {
+           $this->saphirRecord[$key] = Hash::make($value) ;
+         }
+     }
 
        foreach ($this->saphirMultiples as $key => $value) {
         if (in_array($key,$this->saphirRecord->getFillable())) {
@@ -85,6 +91,10 @@ class SaphirCreator extends Component
             $tabValidation["saphirFields.$key"] = $key;
         }
 
+        foreach ($this->saphirPasswords as $key => $value) {
+            $tabValidation["saphirPasswords.$key"] = $key;
+        }
+
         foreach ($this->saphirMultiples as $key => $value) {
             $tabValidation["saphirMultiples.$key"] = $key;
         }
@@ -106,6 +116,10 @@ class SaphirCreator extends Component
     {
         foreach ($this->saphirFields as $key => $value) {
             $this->saphirFields[$key] = null ;
+         }
+
+         foreach ($this->saphirPasswords as $key => $value) {
+            $this->saphirPasswords[$key] = null ;
          }
 
          foreach ($this->saphirMultiples as $key => $value) {

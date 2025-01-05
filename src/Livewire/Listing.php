@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class Listing extends Component
 {
@@ -485,6 +486,9 @@ public function PaginationOrderValue() {
             $this->saphirFiles[$key] = null ;
          }
 
+         foreach ($this->saphirPasswords as $key => $value) {
+            $this->saphirPasswords[$key] = null ;
+         }
 
          $this->saphirRecord = $this->listingModelClass::find($this->activeId);
          
@@ -691,7 +695,7 @@ public function PaginationOrderValue() {
     //////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////
 
-    public function saphirInsertAll($a ,$b, $c,$d) {
+    public function saphirInsertAll($a ,$b, $c, $d,$e) {
 
         if($this->saphirMultipleFiles != []) {
             $this->checkIfMultipleFileIsNotNull() ;
@@ -707,8 +711,19 @@ public function PaginationOrderValue() {
          }
 
 
+         foreach ($this->saphirPasswords as $key => $value) {
+           if (in_array($key, $c)) { 
+             if ($value != '' && $value != null && $value != []) {
+                if (in_array($key,$this->saphirRecord->getFillable())) {
+                    $this->saphirRecord[$key] = Hash::make($value);
+                    }
+               }
+             }
+            }    
+
+
          foreach ($this->saphirMultiples as $key => $value) {
-            if (in_array($key, $b)) {
+            if (in_array($key, $c)) {
                if (in_array($key,$this->saphirRecord->getFillable())) { 
                   $this->saphirRecord[$key] = $value  ;
               }    
@@ -719,7 +734,7 @@ public function PaginationOrderValue() {
         $randomString = Str::random(10);
         $randomString;
         foreach ($this->saphirFiles as $key => $value) {
-         if (in_array($key, $c)) {
+         if (in_array($key, $d)) {
          if($this->saphirFiles[$key] != null) {
          $ext = $this->saphirFiles[$key]->getClientOriginalName();
          $name1 = time(). '-'. $randomString .'-'.$ext;
@@ -733,7 +748,7 @@ public function PaginationOrderValue() {
 
 
         foreach ($this->saphirMultipleFiles as $cle => $item) {
-            if (in_array($cle, $d)) {
+            if (in_array($cle, $e)) {
             $temp = [] ;
             foreach ($item as $key => $value) {
               $ext = $value->getClientOriginalName();
@@ -798,6 +813,10 @@ public function PaginationOrderValue() {
         // Loop through saphirFields
         foreach ($this->saphirFields as $key => $value) {
             $tabValidation["saphirFields.$key"] = $key;
+        }
+
+        foreach ($this->saphirPasswords as $key => $value) {
+            $tabValidation["saphirPasswords.$key"] = $key;
         }
 
         foreach ($this->saphirMultiples as $key => $value) {

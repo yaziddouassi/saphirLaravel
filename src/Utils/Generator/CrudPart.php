@@ -51,6 +51,7 @@ class Liste extends Listing
     public \$saphirRecord = null;
     public \$saphirNullables = [];
     public \$saphirFields = [];
+    public \$saphirPasswords = [];
     public \$saphirMultiples = [];
     public \$saphirFiles =  [];
     public \$saphirMultipleFiles = [];
@@ -120,6 +121,7 @@ class Create extends SaphirCreator
     public \$saphirNullables = [];
     public \$saphirRecord = null;
     public \$saphirFields = ['name' => null];
+    public \$saphirPasswords = [];
     public \$saphirMultiples = [];
     public \$saphirFiles =  [];
     public \$saphirMultipleFiles = [];
@@ -198,6 +200,7 @@ class Edit extends SaphirUpdate
     public \$saphirNullables = [];
     public \$saphirRecord = null;
     public \$saphirFields = ['name' => null];
+    public \$saphirPasswords = [];
     public \$saphirMultiples = [];
     public \$saphirFiles =  [];
     public \$saphirMultipleFiles = [];

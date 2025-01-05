@@ -50,6 +50,7 @@ class Liste extends Listing
     public \$saphirRecord = null;
     public \$saphirNullables = [];
     public \$saphirFields = [];
+    public \$saphirPasswords = [];
     public \$saphirMultiples = [];
     public \$saphirFiles =  [];
     public \$saphirMultipleFiles = [];
@@ -117,6 +118,7 @@ class Create extends WizardCreator
     public \$saphirRecord = null;
     public \$saphirNullables = [];
     public \$saphirFields = ['name' => null,'city' => null];
+    public \$saphirPasswords = [];
     public \$saphirMultiples = [];
     public \$saphirFiles =  [];
     public \$saphirMultipleFiles = [];
@@ -209,6 +211,7 @@ class Edit extends WizardUpdate
     public \$saphirRecord = null;
     public \$saphirNullables = [];
     public \$saphirFields = ['name' => null,'city' => null];
+    public \$saphirPasswords = [];
     public \$saphirMultiples = [];
     public \$saphirFiles =  [];
     public \$saphirMultipleFiles = [];
