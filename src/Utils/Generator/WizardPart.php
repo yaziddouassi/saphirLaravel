@@ -233,6 +233,8 @@ class Edit extends WizardUpdate
                 'saphirFields.name' => ['required'],
             ],[],
             \$this->saphirRename());
+
+            \$this->checkIfMultipleFileIsNotNull([]);
         }
 
         if (\$a == 2) {
@@ -240,6 +242,8 @@ class Edit extends WizardUpdate
                 'saphirFields.city' => ['required'],
             ],[],
             \$this->saphirRename());
+
+            \$this->checkIfMultipleFileIsNotNull([]);
         }
 
     }

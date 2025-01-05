@@ -45,9 +45,6 @@ class WizardUpdate extends Component
     public function conteneurWizardNext()
     {
         $this->wizardValidation($this->wizardCount);
-        if($this->saphirMultipleFiles != []) {
-            $this->checkIfMultipleFileIsNotNull() ;
-        }
         $this->wizardCount = $this->wizardCount + 1 ;
     }
 
@@ -77,12 +74,13 @@ class WizardUpdate extends Component
     }
 
 
-    public function checkIfMultipleFileIsNotNull() {
+    public function checkIfMultipleFileIsNotNull($a) {
 
         $tab1s = [] ;
         $tab2s = [] ;
     
         foreach ($this->saphirMultipleFiles as $key => $value) {
+        if (in_array($key, $a)) {  
             $this->saphirMultipleFileErrors[$key] = 1;
             $tab1s["saphirMultipleFileErrors.$key"] = 'required';
             $tab2s["saphirMultipleFileErrors.$key"] = $key;
@@ -97,7 +95,7 @@ class WizardUpdate extends Component
                     $this->saphirMultipleFileErrors[$key] = 1; 
                 }
             
-    
+            }
         }
     
         $validated2 = $this->validate(
@@ -111,15 +109,13 @@ class WizardUpdate extends Component
 
     public function saphirChanger() {
         
-        if($this->saphirMultipleFiles != []) {
-            $this->checkIfMultipleFileIsNotNull() ;
-        }
+       
 
         foreach ($this->saphirFields as $key => $value) {
-         if (in_array($key,$this->saphirRecord->getFillable())) {
-            $this->saphirRecord[$key] = $value ;
+            if (in_array($key,$this->saphirRecord->getFillable())) {
+               $this->saphirRecord[$key] = $value ;
+               }
             }
-         }
 
          foreach ($this->saphirPasswords as $key => $value) {
             if ($value != '' && $value != null && $value != []) {
