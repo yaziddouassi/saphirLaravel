@@ -1,6 +1,6 @@
 <div x-data="{ showPassword: false }" class="w-full">
     <div class="mb-[5px]">
-       <span class="text-[darkblue] font-bold">{{$label}}</span><span class="text-[red]">@if($required==true)*@endif</span> 
+       <span class="text-[white] font-bold">{{$label}}</span><span class="text-[red]">@if($required==true)*@endif</span> 
     </div>
     
 
