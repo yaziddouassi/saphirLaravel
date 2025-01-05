@@ -97,13 +97,17 @@ class WizardUpdate extends Component
             
             }
         }
-    
-        $validated2 = $this->validate(
-                       $tab1s
-                       ,[], 
-                      $tab2s
-                     );
 
+
+        if ($a != [] && $tab1s != [] && $tab2s != []) {
+            $validated2 = $this->validate(
+                $tab1s
+                ,[], 
+               $tab2s
+              ); 
+        }
+    
+        
     }
 
 
