@@ -45,7 +45,9 @@ class WizardUpdate extends Component
     public function conteneurWizardNext()
     {
         $this->wizardValidation($this->wizardCount);
-        $this->checkIfMultipleFileIsNotNull() ;
+        if($this->saphirMultipleFiles != []) {
+            $this->checkIfMultipleFileIsNotNull() ;
+        }
         $this->wizardCount = $this->wizardCount + 1 ;
     }
 
