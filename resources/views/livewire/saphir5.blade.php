@@ -5,14 +5,15 @@
     
      <div class="min-h-[100vh] w-full max-w-[1150px]  overflow-x-auto  bg-[#DFDFDF]">
        
-        <div class="text-center h-[60px] pt-[10px] bg-[#D5D5D5] text-[darkblue] font-bold text-[28px] ">
-            WIDGET GENERATOR
+        <div class="p-[2px]">
+            <div class="text-center h-[60px] pt-[10px] bg-[black] text-[white] font-bold text-[24px] ">
+             WIDGET GENERATOR
+            </div>
         </div>
-
         
-        <div class="p-[10px] pt-[20px]">
+        <div class="p-[10px] pt-[50px]">
             
-            <div class="bg-[#D5D5D5] p-[10px] pt-[5px] max-w-[400px] m-auto"> 
+            <div class="p-[10px] pt-[5px] max-w-[400px] m-auto"> 
                 
                 <div class="text-center">
                     <span class="text-[20px]">Create WIDGET:</span>
