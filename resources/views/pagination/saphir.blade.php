@@ -37,14 +37,15 @@
                         <span aria-disabled="true" @click="$wire.groupId=[]"
                          aria-label="Previous">
                             <span class=" relative inline-flex items-center px-2 py-2
-                             text-sm font-medium text-gray-500 bg-black text-white border
+                             text-sm font-medium text-grey-500 bg-grey text-white border
                               border-gray-300 cursor-default rounded-l-md leading-5" aria-hidden="true">
                                 &laquo;
                             </span>
                         </span>
                     @else
                         <button @click="$wire.groupId=[]"
-                         wire:click="previousPage" class="relative inline-flex items-center px-2 py-2 text-sm font-medium text-white bg-black border border-gray-300 rounded-l-md leading-5 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" aria-label="Previous">
+                         wire:click="previousPage" class="relative inline-flex items-center px-2 py-2 text-sm font-medium text-black bg-grey-500
+                          border border-gray-300 rounded-l-md leading-5 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" aria-label="Previous">
                             &laquo;
                         </button>
                     @endif
@@ -80,14 +81,14 @@
                     @if ($paginator->hasMorePages())
                         <button wire:click="nextPage" @click="$wire.groupId=[]"
                          class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium
-                         text-white bg-[black] border border-gray-300 rounded-r-md leading-5 hover:text-gray-400 focus:z-10 
+                         text-black bg-grey-500 border border-gray-300 rounded-r-md leading-5 hover:text-gray-400 focus:z-10 
                          focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" aria-label="Next">
                             &raquo;
                         </button>
                     @else
                         <span aria-disabled="true" aria-label="Next">
                             <span @click="$wire.groupId=[]"
-                             class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-white bg-black border border-gray-300 cursor-default rounded-r-md leading-5" aria-hidden="true">
+                             class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-white bg-grey-500 border border-gray-300 cursor-default rounded-r-md leading-5" aria-hidden="true">
                                 &raquo;
                             </span>
                         </span>
