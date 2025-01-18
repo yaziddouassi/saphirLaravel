@@ -19,12 +19,9 @@ use Illuminate\Support\Facades\Hash;
 class Listing extends Component
 {
     use WithFileUploads;
-   
-    public $search = null;
 
-    protected $queryString = [
-        'search' => [ 'keep' => true,'defer' => true],
-    ];
+    #[Url(keep: true)] 
+    public $search = null;
 
     #[Url(keep: true)] 
     public $tableFilters = array();
