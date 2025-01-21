@@ -20,6 +20,7 @@ class Listing extends Component
 {
     use WithFileUploads;
 
+   
     #[Url(keep: true)] 
     public $search = null;
 
@@ -141,6 +142,7 @@ public function PaginationInitQuery() {
 public function PaginationPerPageValue() {
     Session::put('saphirPagination.'. $this->saphirModel . '.paginationPerPage',
     $this->paginationPerPage);
+    return $this->redirect($this->listingRoute, navigate: true);
   }
 
 public function PaginationFieldValue() {
