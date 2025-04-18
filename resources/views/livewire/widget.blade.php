@@ -4,7 +4,7 @@
 
 
  <div>
-    <div class="flex justify-center text-[green]">
+    <div class="flex justify-center text-[darkblue]">
       <span class="block pr-[3px]">
          {{$title}} 
       </span>
@@ -21,7 +21,7 @@
      
 
      <div class="text-center mt-[5px]">
-       <button class="bg-[darkblue] text-white w-[140px] p-[10px]"
+       <button class="text-black border-[1px] border-[black] rounded-[3px] w-[140px] p-[10px]"
        wire:click="updateValue()" >
            Update  </button>
       </div>

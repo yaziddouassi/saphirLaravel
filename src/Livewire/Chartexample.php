@@ -25,14 +25,12 @@ class Chartexample extends Component
         $this->labels = ['first','second','third','four']  ;
         $this->chartType = 'bar';
         $this->backgroundColor = [
-                             'red',
-                             'black',
-                             'lime',
-                             'rgb(75, 192, 192)',
-                             'rgb(153, 102, 255)',
-                             'rgb(255, 159, 64)'
+            'red',
+            'black',
+            'blue',
+            'green',
+            
         ];
-
        
     }
 
