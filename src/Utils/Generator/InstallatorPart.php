@@ -44,7 +44,7 @@ public function getPiece2() {
 
         <div id=\"conteneur\"
          class=\"grid max-[600px]:grid-cols-1
-              max-[1000px]:grid-cols-2 grid-cols-3 p-[10px] pb-[10px] gap-[10px\">
+              max-[1000px]:grid-cols-2 grid-cols-3 p-[10px] pb-[10px] gap-[10px]\">
 
                 @livewire('saphir.widget')
                 @livewire('saphir.widget')
