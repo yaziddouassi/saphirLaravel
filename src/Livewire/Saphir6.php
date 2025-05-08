@@ -19,8 +19,8 @@ class Saphir6 extends Component
         $this->initModel();
         $this->listModels;
       
-        $this->transformString = new \Saphir\Saphir\Utils\generator\TransformString();
-        // dd($this->transformString->transformLink('VoitureMontre')) ;
+        $this->transformString = new \Saphir\Saphir\Utils\Generator\TransformString();
+        
     }
 
     public function initModel()
