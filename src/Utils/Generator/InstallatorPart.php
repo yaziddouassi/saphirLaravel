@@ -40,7 +40,7 @@ public function getPiece2() {
     @livewire('saphir.sidebar',['allRoutes' => \$allRoutes, 'user' => \$user])
      <div class=\"min-h-[100vh] w-full max-w-[1150px]  overflow-x-auto bg-[#ccc]\">
  
-        @include('saphir::topbar')
+        @include('saphir::topBar')
 
         <div id=\"conteneur\"
          class=\"grid max-[600px]:grid-cols-1
