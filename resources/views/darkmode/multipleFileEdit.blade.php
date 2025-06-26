@@ -14,7 +14,7 @@
             <div class="w-[100%]  flex items-center justify-center">
                 <label class="w-[100%]">
                     <input type="file" wire:model="saphirMultipleFiles.{{$file}}"  hidden />
-                    <div class="flex w-[100%] h-[50px] px-2 flex-col bg-[#ccc] rounded-full shadow text-[darkblue] text-[14px] font-semibold leading-4 items-center justify-center cursor-pointer focus:outline-none">Add File</div>
+                    <div class="flex w-[100%] h-[50px] px-2 flex-col bg-[blue] rounded-full shadow text-[white] text-[14px] font-semibold leading-4 items-center justify-center cursor-pointer focus:outline-none">Add File</div>
                   </label>
             </div>
         
