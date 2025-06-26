@@ -107,18 +107,18 @@ class Liste extends Listing
 
     public function InitSearch() {
 
-     //   $this->SearchAddField('name');
-      //  $this->SearchPersist();
+     //   \$this->SearchAddField('name');
+      //  \$this->SearchPersist();
     }
     public function InitFilter() {
-       // $this->FilterAddText('name');
-      //  $this->FilterPersist('name');
+       // \$this->FilterAddText('name');
+      //  \$this->FilterPersist('name');
     }
     public function InitQuery() {
 
-/* if (!is_null($this->tableFilters['name']) && trim($this->tableFilters['name']) !== '') {
+/* if (!is_null(\$this->tableFilters['name']) && trim(\$this->tableFilters['name']) !== '') {
     
-       $this->queryFilter->orwhere('name', 'like', '%' . $this->tableFilters['name'] . '%'); 
+       \$this->queryFilter->orwhere('name', 'like', '%' . \$this->tableFilters['name'] . '%'); 
     }
     */
 }
