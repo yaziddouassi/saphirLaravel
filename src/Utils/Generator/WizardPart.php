@@ -49,7 +49,7 @@ class Liste extends Listing
     public \$listingModelClass = \"$f\";
     public \$saphirRecord = null;
     public \$saphirNullables = [];
-    public \$saphirFields = [];
+    public \$saphirFields = ['name' => null];
     public \$saphirPasswords = [];
     public \$saphirMultiples = [];
     public \$saphirFiles =  [];
@@ -61,11 +61,67 @@ class Liste extends Listing
         \$this->InitListing();
     }
 
-    public function InitCustom() {}
-    public function InitAction() {}
-    public function InitSearch() {}
-    public function InitFilter() {}
-    public function InitQuery() {}
+     public function InitCustom() {
+          \$this->CustomAdd('custom1','Qte','edit');
+          \$this->CustomInput('custom1','inputText',
+               ['field' => 'name',
+                'label' => 'Nom',
+                'required' =>true,
+                ]);
+    }
+
+    public function custom1() {
+
+        \$validated = \$this->validate([ 
+            'saphirFields.name' => ['required'],
+        ],[], 
+        \$this->saphirRename()
+        );
+
+        \$this->saphirInsertAll(['name'] ,[],[],[],[]) ;
+        \$this->saphirRecord->save();
+        \$this->saphirCloseModal();
+        \$this->js(\"const notyf = new Notyf({ position: {x: 'right',y: 'top'}});
+        notyf.success('Record Updated');\"); 
+    }
+
+
+
+
+
+    public function InitAction() {
+      \$this->ActionAdd('action1','Prendre','etes vous sur','edit');
+    }
+
+    public function action1() {
+
+        \$this->listingModelClass::whereIn('id',\$this->groupId)->update([
+           'name' => 'Fiat'
+        ]);
+
+        \$this->js(\"const notyf = new Notyf({ position: {x: 'right',y: 'top'}});
+        notyf.success('Records Updated');\"); 
+    }
+
+
+
+    public function InitSearch() {
+
+     //   $this->SearchAddField('name');
+      //  $this->SearchPersist();
+    }
+    public function InitFilter() {
+       // $this->FilterAddText('name');
+      //  $this->FilterPersist('name');
+    }
+    public function InitQuery() {
+
+/* if (!is_null($this->tableFilters['name']) && trim($this->tableFilters['name']) !== '') {
+    
+       $this->queryFilter->orwhere('name', 'like', '%' . $this->tableFilters['name'] . '%'); 
+    }
+    */
+}
     
    
 
