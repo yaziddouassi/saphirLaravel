@@ -20,15 +20,14 @@
         
            
             @foreach ($saphirMultipleFiles[$file] as $key => $item)
-            <div class="pt-[5px] flex">
+            <div class="flex bg-[#DDD] text-black border-[2px] border-white mt-[10px]
+          p-[10px] pb-[20px] pt-[20px] rounded-[5px]">
                 <div class="w-full">
                     @if ($item) 
-                      <video width="100%" class="max-h-[50vh]" controls
-                           src="{{ $item->temporaryUrl() }}">
-                        </video>  
+                    {{ $item->getClientOriginalName() }}
                      @endif
                 </div>
-                <div class="">
+                <div>
                     <span class="material-icons text-[red]
                      text-[30px] cursor-pointer"
                      wire:click="saphirDeleteFileByKey('{{$file}}','{{$key}}')">
