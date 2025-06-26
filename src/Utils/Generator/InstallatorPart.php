@@ -52,6 +52,9 @@ public function getPiece2() {
                 @livewire('saphir.chartexample')
                 @livewire('saphir.chartexample2') 
                 @livewire('saphir.chartexample3')
+                @livewire('saphir.widget')
+                @livewire('saphir.widget')
+                @livewire('saphir.widget')
                             
         </div>
      </div>
