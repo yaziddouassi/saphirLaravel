@@ -1,5 +1,5 @@
 <div class="w-full"
-    x-data="{ isUploading: false, progress: 0 , showFile : true}"
+    x-data="{ isUploading: false, progress: 0 , showFile : true, imagePreviewUrl: null}"
     x-on:livewire-upload-start="isUploading = true"
     x-on:livewire-upload-finish="isUploading = false"
     x-on:livewire-upload-error="isUploading = false"
@@ -11,10 +11,24 @@
 
     <div class="w-[100%]  flex items-center justify-center" x-show="$wire.saphirFile0pens.{{$file}}">
         <label class="w-[100%]">
-            <input type="file" wire:model="saphirFiles.{{$file}}" accept="image/png,image/jpeg" hidden />
+            <input type="file" wire:model="saphirFiles.{{$file}}" accept="image/png,image/jpeg" hidden 
+            x-ref="imageInput"
+                   @change="if ($refs.imageInput.files.length) {
+                    imagePreviewUrl= URL.createObjectURL($refs.imageInput.files[0]);
+                   }"
+                  @foo.window="imagePreviewUrl=null" 
+            />
             <div class="flex w-[100%] h-[50px] px-2 flex-col bg-[blue] rounded-full shadow text-[white] text-[14px] font-semibold leading-4 items-center justify-center cursor-pointer focus:outline-none">Choose Image</div>
           </label>
     </div>
+
+
+     <template x-if="imagePreviewUrl">
+        <div class="mt-4">
+            <span class="text-green-600 font-semibold">Dernière image ajoutée :</span>
+            <img :src="imagePreviewUrl" alt="Dernière image" class="mt-2 rounded w-[150px] h-auto border shadow">
+        </div>
+    </template>
 
      <!-- Progress Bar -->
      <div x-show="isUploading">
@@ -40,11 +54,14 @@
       </div>
 
 
-    <div class="pt-[5px]"  x-show="$wire.saphirFile0pens.{{$file}}">
-        @if ($saphirFiles[$file])
-        <img src="{{ $saphirFiles[$file]->temporaryUrl() }}" width="100%" class="max-h-[50vh]">
-        @endif
-    </div>
+    <div class="pt-[5px]" x-show="$wire.saphirFile0pens.{{$file}}">
+                  @if ($saphirFiles[$file])
+                   <div class="bg-[#DDD] text-black border-[2px] border-white mt-[10px]
+                   p-[10px] pb-[20px] pt-[20px] rounded-[5px]">
+                  {{ $saphirFiles[$file]->getClientOriginalName() }}
+                  </div>
+              @endif
+             </div>
     
 
     @error("saphirFiles.$file")
