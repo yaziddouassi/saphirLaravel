@@ -1,5 +1,5 @@
 <div class="w-full"
-            x-data="{ isUploading: false, progress: 0 }"
+            x-data="{ isUploading: false, progress: 0 , lastPhotoUrl: null }"
             x-on:livewire-upload-start="isUploading = true"
             x-on:livewire-upload-finish="isUploading = false"
             x-on:livewire-upload-error="isUploading = false"
@@ -13,11 +13,25 @@
         
             <div class="w-[100%]  flex items-center justify-center">
                 <label class="w-[100%]">
-                    <input type="file" wire:model="saphirMultipleFiles.{{$file}}" accept="image/png,image/jpeg" hidden />
+                    <input type="file" wire:model="saphirMultipleFiles.{{$file}}" accept="image/png,image/jpeg" 
+                    hidden 
+                    x-ref="fileInput"
+                    @change="if($refs.fileInput.files.length){
+                    lastPhotoUrl = URL.createObjectURL($refs.fileInput.files[$refs.fileInput.files.length - 1]);
+                    }"
+                    @foo.window="lastPhotoUrl=null"
+                    />
                     <div class="flex w-[100%] h-[50px] px-2 flex-col bg-[blue] rounded-full shadow text-[white] text-[14px] font-semibold leading-4 items-center justify-center cursor-pointer focus:outline-none">Add Image</div>
                   </label>
             </div>
         
+            <!-- ✅ Affichage de la dernière image ajoutée -->
+    <template x-if="lastPhotoUrl">
+        <div class="mt-4">
+            <span class="text-green-600 font-semibold">Dernière image ajoutée :</span>
+            <img :src="lastPhotoUrl" alt="Dernière image" class="mt-2 rounded w-[150px] h-auto border shadow">
+        </div>
+    </template>
            
             @foreach ($saphirMultipleFiles[$file] as $key => $item)
             <div class="flex bg-[#DDD] text-black border-[2px] border-white mt-[10px]
