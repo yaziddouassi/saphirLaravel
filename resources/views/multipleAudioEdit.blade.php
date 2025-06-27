@@ -1,5 +1,5 @@
-<div class="w-full"
-            x-data="{ isUploading: false, progress: 0 }"
+  <div class="w-full"
+            x-data="{ isUploading: false, progress: 0 , lastAudioUrl: null}"
             x-on:livewire-upload-start="isUploading = true"
             x-on:livewire-upload-finish="isUploading = false"
             x-on:livewire-upload-error="isUploading = false"
@@ -13,11 +13,25 @@
         
             <div class="w-[100%]  flex items-center justify-center">
                 <label class="w-[100%]">
-                    <input type="file" wire:model="saphirMultipleFiles.{{$file}}" accept="audio/*" hidden />
+                    <input type="file" wire:model="saphirMultipleFiles.{{$file}}" accept="audio/*"
+                     hidden 
+                     x-ref="fileInput"
+                     @change="if ($refs.fileInput.files.length) {
+                        lastAudioUrl = URL.createObjectURL($refs.fileInput.files[$refs.fileInput.files.length - 1]);
+                      }"
+                    @foo.window="lastAudioUrl=null"
+                     />
                     <div class="flex w-[100%] h-[50px] px-2 flex-col bg-[blue] rounded-full shadow text-[white] text-[14px] font-semibold leading-4 items-center justify-center cursor-pointer focus:outline-none">Add Audio</div>
                   </label>
             </div>
         
+            <!-- ✅ Aperçu audio du dernier fichier sélectionné -->
+           <template x-if="lastAudioUrl">
+               <div class="mt-4 w-full">
+                <span class="text-green-600 font-semibold">Dernier audio ajouté :</span>
+                <audio class="mt-2 w-full" controls :src="lastAudioUrl"></audio>
+                </div>
+           </template>
            
             @foreach ($saphirMultipleFiles[$file] as $key => $item)
             <div class="flex bg-[#DDD] text-black border-[2px] border-white mt-[10px]
@@ -69,3 +83,4 @@
             </div>
         
 </div>
+
