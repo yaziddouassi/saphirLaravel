@@ -1,5 +1,5 @@
 <div class="w-full"
-            x-data="{ isUploading: false, progress: 0 }"
+            x-data="{ isUploading: false, progress: 0 , lastAudioUrl: null}"
             x-on:livewire-upload-start="isUploading = true"
             x-on:livewire-upload-finish="isUploading = false"
             x-on:livewire-upload-error="isUploading = false"
@@ -8,19 +8,33 @@
            
 
             <div class="mb-[5px]">
-                <span class="text-[white] font-bold">{{$label}}</span><span class="text-[red]">@if($required==true)*@endif</span> 
+                <span class="text-[darkblue] font-bold">{{$label}}</span><span class="text-[red]">@if($required==true)*@endif</span> 
              </div>
         
             <div class="w-[100%]  flex items-center justify-center">
                 <label class="w-[100%]">
-                    <input type="file" wire:model="saphirMultipleFiles.{{$file}}" accept="audio/*" hidden />
+                    <input type="file" wire:model="saphirMultipleFiles.{{$file}}" accept="audio/*"
+                     hidden 
+                     x-ref="fileInput"
+                     @change="if ($refs.fileInput.files.length) {
+                        lastAudioUrl = URL.createObjectURL($refs.fileInput.files[$refs.fileInput.files.length - 1]);
+                      }"
+                    @foo.window="lastAudioUrl=null"
+                     />
                     <div class="flex w-[100%] h-[50px] px-2 flex-col bg-[blue] rounded-full shadow text-[white] text-[14px] font-semibold leading-4 items-center justify-center cursor-pointer focus:outline-none">Add Audio</div>
                   </label>
             </div>
         
+            <!-- ✅ Aperçu audio du dernier fichier sélectionné -->
+           <template x-if="lastAudioUrl">
+               <div class="mt-4 w-full">
+                <span class="text-green-600 font-semibold">Dernier audio ajouté :</span>
+                <audio class="mt-2 w-full" controls :src="lastAudioUrl"></audio>
+                </div>
+           </template>
            
             @foreach ($saphirMultipleFiles[$file] as $key => $item)
-           <div class="flex bg-[#222] text-white border-[1px] border-[grey] mt-[10px]
+            <div class="flex bg-[#222] text-white border-[2px] border-[grey] mt-[10px]
           p-[10px] pb-[20px] pt-[20px] rounded-[5px]">
                 <div class="w-full">
                     @if ($item) 
@@ -39,7 +53,7 @@
 
          @if ($saphirMultipleFileRecords != [])
          @foreach ($saphirMultipleFileRecords[$file] as $key => $item)
-         <div class="pt-[5px] flex text-white">
+         <div class="pt-[5px] flex">
              <div class="w-full">
                  @if ($item) 
                  <audio controls class="pt-[8px]  w-full" src="{{$saphirUrlStorage}}{{$item}}">
@@ -54,7 +68,7 @@
                  </span>
              </div>
         </div>
-      @endforeach
+        @endforeach
         @endif
         
          @error("saphirMultipleFiles.$file")
