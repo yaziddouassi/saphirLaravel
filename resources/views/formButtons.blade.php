@@ -2,7 +2,7 @@
     <button class="bg-[blue] w-[100px] text-white p-[9px] rounded-[2px]"
    wire:click="saphirCreate()"  >Créer</button>
     &nbsp;
-    <button wire:click="saphirCreateOther()"
+    <button @click="$dispatch('foo')" wire:click="saphirCreateOther()"
       class="border-[1px] border-black w-[140px] text-black p-[9px] rounded-[2px]">
         Créer un autre
    </button>
