@@ -7,7 +7,6 @@ header('Expires: 0');
 use Livewire\Component;
 use Illuminate\Support\Facades\File;
 
-
 class Chartexample2 extends Component
 {
     public $data = [] ;
@@ -27,8 +26,8 @@ class Chartexample2 extends Component
         $this->labels = ['first','second','third','four']  ;
         $this->chartType = 'line';
         $this->backgroundColor = [
-                             'red',
                              'black',
+                             'red',
                              'lime',
                              'rgb(75, 192, 192)',
                              'rgb(153, 102, 255)',
@@ -45,10 +44,6 @@ class Chartexample2 extends Component
         $this->labels = ['first','second','third']  ;
        
     }
-
-
-    
-
     
     public function render()
     {
