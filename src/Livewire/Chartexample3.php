@@ -26,27 +26,21 @@ class Chartexample3 extends Component
         $this->chartType = 'pie';
         $this->backgroundColor = [
             'red',
-            'black',
+            'lime',
             'blue',
-            'green',
+            'black',
             
        ];
 
        
     }
-
-
+    
     public function chartchange()
     {
         $this->data= [1,2,3]  ;
         $this->labels = ['first','second','third']  ;
-       
     }
 
-
-    
-
-    
     public function render()
     {
         return view('saphir::livewire.chartexample3');
