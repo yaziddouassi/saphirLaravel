@@ -7,7 +7,6 @@ header('Expires: 0');
 use Livewire\Component;
 use Illuminate\Support\Facades\File;
 
-
 class Chartexample extends Component
 {
     public $data = [] ;
@@ -25,15 +24,14 @@ class Chartexample extends Component
         $this->labels = ['first','second','third','four']  ;
         $this->chartType = 'bar';
         $this->backgroundColor = [
+            'blue',
             'red',
             'black',
-            'blue',
-            'green',
+            'lime',
             
         ];
        
     }
-
 
     public function chartchange()
     {
@@ -42,12 +40,10 @@ class Chartexample extends Component
        
     }
 
-
-    
-
     
     public function render()
     {
         return view('saphir::livewire.chartexample');
     }
 }
+
