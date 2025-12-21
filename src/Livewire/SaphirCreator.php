@@ -13,6 +13,21 @@ use Illuminate\Support\Facades\Hash;
 
 class SaphirCreator extends Component
 {
+
+    public $saphirPreviewUrl = [] ;
+
+     public function initSaphirPreviewUrl()
+    {
+        foreach ($this->saphirFiles as $key => $value) {
+            $this->saphirPreviewUrl[$key] = null ;
+         }
+    }
+
+     public function initSaphir()
+    {
+      $this->initSaphirPreviewUrl();
+    }
+
     public function saphirInsert()
     {
         $this->saphirRecord = new $this->saphirModelClass;
@@ -41,6 +56,7 @@ class SaphirCreator extends Component
        $this->saphirRecord['updated_at'] = $now;
 
        $this->saphirUpload();
+       $this->initSaphirPreviewUrl();
       
     }
 
