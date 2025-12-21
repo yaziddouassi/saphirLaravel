@@ -185,6 +185,7 @@ class Create extends SaphirCreator
 
     public function mount() {
         \$this->saphirUrlStorage =  config('saphir.urlstorage');
+        \$this->initSaphir();
     }
 
 
