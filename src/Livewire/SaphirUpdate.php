@@ -17,6 +17,17 @@ class SaphirUpdate extends Component
    public $saphirFile0pens =  [];
    public $saphirMultipleFileRecords =  [];
    public $saphirMultipleFileErrors =  [];
+   public $saphirPreviewUrl = [] ;
+   public $saphirHasNewUpload = [] ;
+   public $saphirRecordBis = [];
+
+   public function initSaphirPreviewUrl()
+    {
+        foreach ($this->saphirFiles as $key => $value) {
+            $this->saphirPreviewUrl[$key] = null ;
+            $this->saphirHasNewUpload[$key] = false ;
+         }
+    }
 
    public function conteneurSaphirUpdate()
    {
@@ -97,6 +108,8 @@ public function saphirChanger() {
     }
 
      $this->saphirUpload();
+     $this->initSaphirPreviewUrl();
+     $this->saphirRecordBis = $this->saphirRecord->toArray() ;
 
 }
 
@@ -180,6 +193,9 @@ public function saphirInit($id) {
     if($this->saphirRecord == null) {
         return $this->redirect($this->saphirRouteListe, navigate: true);
     }
+
+     $this->saphirRecordBis = $this->saphirRecord->toArray() ;
+
     foreach ($this->saphirFields as $cle => $fields) {
         if (in_array($cle,$this->saphirRecord->getFillable())) {
         $this->saphirFields[$cle] =  $this->saphirRecord[$cle];
@@ -198,7 +214,7 @@ public function saphirInit($id) {
        } 
     }
 
-
+     $this->initSaphirPreviewUrl();
 }
 
 
