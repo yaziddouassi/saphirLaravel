@@ -17,8 +17,20 @@ class WizardCreator extends Component
     public $wizardCount = 1;
     public $wizardSteps = 0 ;
     public $wizardLabels = array() ;
+     public $saphirPreviewUrl = [] ;
 
-    
+     public function initSaphirPreviewUrl()
+    {
+        foreach ($this->saphirFiles as $key => $value) {
+            $this->saphirPreviewUrl[$key] = null ;
+         }
+    }
+
+     public function initSaphir()
+    {
+      $this->initSaphirPreviewUrl();
+    }
+
     public function saphirReset()
     {
         foreach ($this->saphirFields as $key => $value) {
@@ -51,6 +63,7 @@ class WizardCreator extends Component
         foreach ($labels as $key => $value) {
             $this->wizardLabels[$key + 1] = $value;
         }
+        $this->initSaphirPreviewUrl();
     }
 
  
@@ -111,6 +124,7 @@ class WizardCreator extends Component
        $this->saphirRecord['updated_at'] = $now;
 
        $this->saphirUpload();
+       $this->initSaphirPreviewUrl();
       
     }
 
