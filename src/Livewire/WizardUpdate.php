@@ -20,6 +20,17 @@ class WizardUpdate extends Component
     public $saphirFile0pens =  [];
     public $saphirMultipleFileRecords =  [];
     public $saphirMultipleFileErrors =  [];
+    public $saphirPreviewUrl = [] ;
+    public $saphirHasNewUpload = [] ;
+    public $saphirRecordBis = [];
+
+   public function initSaphirPreviewUrl()
+    {
+        foreach ($this->saphirFiles as $key => $value) {
+            $this->saphirPreviewUrl[$key] = null ;
+            $this->saphirHasNewUpload[$key] = false ;
+         }
+    }
 
 
     public function wizardInit($steps,$labels)
@@ -29,6 +40,8 @@ class WizardUpdate extends Component
         foreach ($labels as $key => $value) {
             $this->wizardLabels[$key + 1] = $value;
         }
+
+        $this->initSaphirPreviewUrl();
     }
 
     public function wizardValidation($a) {}
@@ -136,7 +149,8 @@ class WizardUpdate extends Component
         }
     
          $this->saphirUpload();
-    
+         $this->initSaphirPreviewUrl();
+         $this->saphirRecordBis = $this->saphirRecord->toArray() ;
     }
     
 
@@ -215,6 +229,9 @@ class WizardUpdate extends Component
         if($this->saphirRecord == null) {
          return $this->redirect($this->saphirRouteListe, navigate: true);
         }
+
+        $this->saphirRecordBis = $this->saphirRecord->toArray() ;
+
        foreach ($this->saphirFields as $cle => $fields) {
         if (in_array($cle,$this->saphirRecord->getFillable())) {
            $this->saphirFields[$cle] =  $this->saphirRecord[$cle];
@@ -232,6 +249,8 @@ class WizardUpdate extends Component
         $this->saphirMultipleFileRecords[$cle] = $this->saphirRecord[$cle] ;
        } 
     }
+
+    $this->initSaphirPreviewUrl();
 
 
    }
